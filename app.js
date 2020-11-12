@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const encrypt = require('mongoose-encryption');
+const bcrypt = require('bcrypt');
+const saltRounds = 11;
 
 const app = express();
 
@@ -26,7 +28,7 @@ const batchSchema = new mongoose.Schema({
   password: String
 });
 
-batchSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});
+// batchSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});
 
 const Batch = mongoose.model('Batch', batchSchema);
 
@@ -43,21 +45,23 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-  const newBatch = new Batch({
-    tchName: req.body.teacher,
-    email: req.body.email,
-    batch: req.body.batch,
-    subject: req.body.subject,
-    username: req.body.username,
-    password: req.body.password
-  });
-
-  newBatch.save(err => {
-    if(err){
-      console.log(err);
-    } else {
-      res.render("home");
-    }
+  
+  bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+    const newBatch = new Batch({
+      tchName: req.body.teacher,
+      email: req.body.email,
+      batch: req.body.batch,
+      subject: req.body.subject,
+      username: req.body.username,
+      password: hash
+    });
+    newBatch.save(err => {
+      if(err){
+        console.log(err);
+      } else {
+        res.render("home");
+      }
+    });
   });
 });
 
@@ -70,9 +74,9 @@ app.post("/login", (req, res) => {
       console.log(err);
     } else {
       if(foundUser){
-        if(foundUser.password === password){
-          res.render("home");
-        }
+        bcrypt.compare(password, foundUser.password, (err, result) => {
+          res.render('home');
+        });
       }
     }
   });
