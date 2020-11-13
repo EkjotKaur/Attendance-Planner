@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Attendance</title>
-</head>
-<body>
+<%- include('./partials/top.ejs') %>
+
   <h1>HOME PAGE AFTER LOGIN/SIGNUP</h1>
 
-  <button type="submit"><a href="/logout">LOGOUT</a></button>
+  <button><a href="/newClass">New Batch</a></button>
+
+  <% classList.forEach(batch => { %> 
+    <p> <%= batch.branch %> </p>
+    <p> <%= batch.Shift %> </p>
+    <p> <%= batch.year %> </p>
+    <p> <%= batch.subject %> </p>
+  <% }); %> 
+
+  <button><a href="/logout">LOGOUT</a></button>
 
 </body>
 </html>

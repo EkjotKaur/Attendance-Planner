@@ -1,0 +1,14 @@
+<%- include('./partials/top.ejs') %>
+
+  <h1>NEW CLASS</h1>
+
+  <form action="/newclass" method="POST">
+    <input type="text" placeholder="branch" name="branch" > <!--drop down-->
+    <input type="text" placeholder="Shift" name="Shift">  <!--checkbox-->
+    <input type="text" placeholder="year" name="year"> <!--drop down-->
+    <input type="text" placeholder="subject" name="subject"> 
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
