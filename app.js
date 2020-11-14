@@ -9,7 +9,6 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 
-
 const app = express();
 
 app.use(express.static("public"));
@@ -27,7 +26,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/classDB', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/classDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
@@ -85,13 +84,25 @@ app.get('/home', function(req, res){
 });
 
 app.get('/newclass', (req, res) => {
- res.render('newClass');
+ if(req.isAuthenticated()){
+  res.render('newClass');
+  } else {
+    res.redirect('/login');
+  }
+});
+
+app.get('/:presentClassId/updateClass', (req, res) => {
+  if(req.isAuthenticated()){
+    res.render('updateClass', {presentClassId: req.params.presentClassId});
+  } else {
+    res.redirect('/login');
+  }
 });
 
 app.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
-})
+});
 
 app.post('/signup', (req, res) => {
   User.register({name: req.body.name, username: req.body.username}, req.body.password, (err, user) => {
@@ -104,7 +115,6 @@ app.post('/signup', (req, res) => {
       });
     }
   });
-
 });
 
 app.post("/login", (req, res) => {
@@ -135,7 +145,26 @@ app.post('/newclass', (req, res) => {
   });
   batch.save();
   res.redirect('home');
+});
 
+app.post('/:presentClassId/updateClass', (req, res) => {
+  Class.findOneAndUpdate({_id: req.params.presentClassId}, {subject: req.body.subject}, (err, updatedBatch) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.redirect('/home');
+    }
+  });
+});
+
+app.post('/:presentClassId/deleteClass', (req, res) => {
+  Class.findByIdAndDelete({_id: req.params.presentClassId}, (err, deletedClass) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.redirect('/home');
+    }
+  });
 });
 
 app.listen(8080, function(){

@@ -1,0 +1,11 @@
+<%- include('./partials/top.ejs') %>
+
+  <h1>NEW CLASS</h1>
+
+  <form action="/<%= presentClassId %>/updateClass" method="POST">
+    <input type="text" placeholder="subject" name="subject"> 
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
