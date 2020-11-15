@@ -1,9 +1,50 @@
 <%- include('./partials/top.ejs') %>
+<head>
 
-  <h1>Server Working HOME PAGE</h1>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <button><a href="/login">LOGIN</a></button>
-  <button><a href="/signup">SIGNUP</a></button>
+</head>
+<body data-spy="scroll " data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.4em">ATTENDANCE  PLANNER</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+          <ul class="nav navbar-nav text-center ">
+          <li><a href="#ABOUT"style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em;"><span class="glyphicon glyphicon-star-empty"></span> ABOUT</a></li></button>
+          <li><a href="/signup" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+          <li><a href="/login" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+          <li><a href="#CONTACT" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-earphone"></span> CONTACT</a></li>
+         </ul>
+      </div>
+    </div>
+  </div>
+</nav>    
+
+
+<h1 class="block-effect" style="--td: 1.2s">
+  <div class="block-reveal" style="--bc: #4040bf; --d: .1s">Attendance</div>
+  <div class="block-reveal" style="--bc: #bf4060; --d: .5s">Planner</div>
+</h1>
+<br><br><br><br>
+
+<div class="info">
+  <button type="button" class="btn btn-info" ><a href="/login"><span class="glyphicon glyphicon-log-in"></span>  LOGIN</a></button>
+  <button type="button" class="btn btn-info"><a href="/signup"><span class="glyphicon glyphicon-user"></span>  SIGNUP</a></button>
+</div>
+
+
+
 
 </body>
 </html>
