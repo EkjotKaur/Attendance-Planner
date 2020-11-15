@@ -8,10 +8,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-'use strict';
-
-const fs = require('fs');
-
 
 const app = express();
 
@@ -70,60 +66,6 @@ const User = mongoose.model('User', userSchema);
 const Class = mongoose.model('Class', classSchema);
 const Slot = mongoose.model('Slot', slotSchema);
 const Student = mongoose.model('Student', studentSchema);
-
-// 
-
-
-
-// fs.readFile('student.json', (err, data) => {
-//   if (err) 
-//     console.log(err);
-//   let student = JSON.parse(data);
-//   for(var i=0; i<student.length; i++)
-//   {
-//     if(student[i].year===2019)
-//     {
-//       Slot.findOne({branch: student[i].branch, year: student[i].year, shift: student[i].class}, 'id', (err, foundSlot) => {
-//           if(err){
-//             console.log(err);
-//           } else {
-//             // console.log(foundSlot);
-//             // console.log(student[i]);
-//             // const newStudent = new Student({
-//             //   enrollNo: student[i].EnrollNo,
-//             //   name: student[i].NameOfStudent,
-//             //   branch: student[i].branch,
-//             //   Shift: student[i].class,
-//             //   year: student[i].year,
-//             //   present: 0,
-//             //   slotId: foundSlot.id
-//             // });
-//             // newStudent.save();
-//           }
-//       });
-//     // } else {
-//     //   Slot.findOne({branch: student[i].branch, year: student[i].year}, (err, foundSlot) => {
-//     //     if(err){
-//     //       console.log(err);
-//     //     } else {
-//     //       const newStudent = new Student({
-//     //         enrollNo: student[i].EnrollNo,
-//     //         name: student[i].NameOfStudent,
-//     //         branch: student[i].branch,
-//     //         Shift: "",
-//     //         year: student[i].year,
-//     //         present: 0,
-//     //         slotId: foundSlot.id
-//     //       });
-//     //       newStudent.save();
-//     //     }
-//     //   });
-//     }
-//   }
-// });
-
-// 
-
 
 passport.use(User.createStrategy());
  

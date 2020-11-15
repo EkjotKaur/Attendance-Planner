@@ -495,15 +495,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 52,
    "EnrollNo": "5215002819",
    "NameOfStudent": "KHUSHBOO SAINI",
@@ -1023,15 +1014,6 @@
    "branch": "ECE",
    "class": "ECE-2",
    "year": 2019,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -1575,15 +1557,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 106,
    "EnrollNo": "10615002719",
    "NameOfStudent": "TUSHAR GUPTA",
@@ -2124,15 +2097,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 1,
    "EnrollNo": "196303119",
    "NameOfStudent": "KULDEEP ",
@@ -2625,15 +2589,6 @@
    "branch": "IT",
    "class": "IT-Eve",
    "year": 2019,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -3177,15 +3132,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 1,
    "EnrollNo": "196302719",
    "NameOfStudent": "PRASANNJEET PARASAR ",
@@ -3687,15 +3633,6 @@
    "branch": "CSE",
    "class": "CSE-eve",
    "year": 2019,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -4218,15 +4155,6 @@
    "branch": "EEE",
    "class": "EEE-1",
    "year": 2019,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -4770,15 +4698,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 61,
    "EnrollNo": "6115003119",
    "NameOfStudent": "DHEERAJ GOYAL",
@@ -5283,15 +5202,6 @@
    "FIELD7": ""
  },
  {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
    "S.No": 1,
    "EnrollNo": "196302819",
    "NameOfStudent": "ABHINAV PANDEY",
@@ -5793,15 +5703,6 @@
    "branch": "ECE",
    "class": "ECE-eve",
    "year": 2019,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -7588,15 +7489,6 @@
  },
  {
    "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
    "EnrollNo": "196302717",
    "NameOfStudent": "ADISAKSHYA CHAUHAN",
    "branch": "CSE",
@@ -8214,15 +8106,6 @@
    "branch": "CSE",
    "class": "",
    "year": 2017,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -9577,15 +9460,6 @@
  },
  {
    "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
    "EnrollNo": "196302816",
    "NameOfStudent": "AKSHAT SHARMA",
    "branch": "ECE",
@@ -10734,15 +10608,6 @@
    "branch": "ECE",
    "class": "",
    "year": 2016,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -11922,15 +11787,6 @@
    "branch": "ECE",
    "class": "",
    "year": 2017,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -13159,15 +13015,6 @@
  },
  {
    "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
    "EnrollNo": "196303116",
    "NameOfStudent": "ADITYA KASHYAP",
    "branch": "IT",
@@ -13749,15 +13596,6 @@
    "branch": "IT",
    "class": "",
    "year": 2016,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -14352,15 +14190,6 @@
    "branch": "IT",
    "class": "",
    "year": 2017,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -15481,24 +15310,6 @@
  },
  {
    "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
    "EnrollNo": "115004916",
    "NameOfStudent": "AKANKSHA SINGH",
    "branch": "EEE",
@@ -16026,15 +15837,6 @@
    "branch": "EEE",
    "class": "",
    "year": 2016,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
@@ -16593,15 +16395,6 @@
    "branch": "EEE",
    "class": "",
    "year": 2017,
-   "FIELD7": ""
- },
- {
-   "S.No": null,
-   "EnrollNo": "",
-   "NameOfStudent": "Batch :2018",
-   "branch": "",
-   "class": "",
-   "year": null,
    "FIELD7": ""
  },
  {
