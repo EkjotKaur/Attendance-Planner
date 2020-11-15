@@ -27,7 +27,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/classDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect('mongodb+srv://admin-EkjotKaur:Test123@attendance.e3ui6.mongodb.net/attendanceDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
@@ -171,22 +172,6 @@ app.post("/login", (req, res) => {
 });
 
 app.post('/newclass', (req, res) => {
-  Slot.findOne({branch: req.body.branch, Shift: req.body.Shift, year: req.body.year}, (err, slotItem) => {
-    if(err){
-      console.log(err);
-    } else {
-      if(!slotItem){
-        const slot = new Slot({
-          branch: req.body.branch,
-          Shift: req.body.Shift,
-          year: req.body.year,
-        });
-        slot.save();
-      } else {
-        console.log(slotItem);
-      }
-    }
-  })
   const batch = new Class({
     branch: req.body.branch,
     Shift: req.body.Shift,
