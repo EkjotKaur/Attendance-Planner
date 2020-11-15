@@ -5,14 +5,17 @@
   <button><a href="/newClass">New Batch</a></button>
 
   <% classList.forEach(batch => { %> 
-    <p> <%= batch.branch %> </p>
-    <p> <%= batch.Shift %> </p>
-    <p> <%= batch.year %> </p>
-    <p> <%= batch.subject %> </p>
-    <button><a href="/<%= batch.id %>/updateClass">UPDATE</a></button>
-    <form action="/<%= batch.id %>/deleteClass" method="POST">
-      <button type="submit">DELETE</button>
-    </form>
+    <div style="border: 1px solid black;"><a href="/<%= batch.id %>/attendance" >
+      <p> <%= batch.branch %> </p>
+      <p> <%= batch.Shift %> </p>
+      <p> <%= batch.year %> </p>
+      <p> <%= batch.subject %> </p>
+      <button><a href="/<%= batch.id %>/updateClass">UPDATE</a></button>
+      <form action="/<%= batch.id %>/deleteClass" method="POST">
+        <button type="submit">DELETE</button>
+      </form>
+    </a></div>
+   
    
   <% }); %> 
 

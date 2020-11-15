@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
 
@@ -26,7 +27,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/classDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect('mongodb+srv://admin-EkjotKaur:Test123@attendance.e3ui6.mongodb.net/attendanceDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
@@ -43,10 +45,28 @@ const classSchema = {
   userId: String,
 };
 
+const slotSchema = {
+  branch: String,
+  Shift: String,
+  year: String
+}
+
+const studentSchema = {
+  enrollNo: String,
+  name: String,
+  branch: String,
+  Shift: String,
+  year: String,
+  present: Number,
+  slotId: String
+}
+
 userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', userSchema);
 const Class = mongoose.model('Class', classSchema);
+const Slot = mongoose.model('Slot', slotSchema);
+const Student = mongoose.model('Student', studentSchema);
 
 passport.use(User.createStrategy());
  
@@ -99,6 +119,22 @@ app.get('/:presentClassId/updateClass', (req, res) => {
   }
 });
 
+app.get('/:presentClassId/attendance', (req, res) => {
+  if(req.isAuthenticated()){
+    res.render('attendance', {presentClassId: req.params.presentClassId});
+  } else {
+    res.redirect('/login');
+  }
+});
+
+app.get('/:presentClassId/newStudent', (req, res) => {
+  if(req.isAuthenticated()){
+    res.render('newStudent');
+  } else {
+    res.redirect('/login');
+  }
+});
+
 app.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
@@ -143,6 +179,7 @@ app.post('/newclass', (req, res) => {
     subject: req.body.subject,
     userId: req.user.id 
   });
+
   batch.save();
   res.redirect('home');
 });
