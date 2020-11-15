@@ -1,0 +1,117 @@
+[
+  {
+    "branch": "CSE",
+    "Shift": "CSE-1",
+    "year": "2019"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "CSE-2",
+    "year": "2019"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "CSE-3",
+    "year": "2019"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "CSE-eve",
+    "year": "2019"
+  },
+  {
+    "branch": "IT",
+    "Shift": "IT-1",
+    "year": "2019"
+  },
+  {
+    "branch": "IT",
+    "Shift": "IT-2",
+    "year": "2019"
+  },
+  {
+    "branch": "IT",
+    "Shift": "IT-Eve",
+    "year": "2019"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "ECE-1",
+    "year": "2019"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "ECE-2",
+    "year": "2019"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "ECE-eve",
+    "year": "2019"
+  },
+  {
+    "branch": "EEE",
+    "Shift": "EEE-1",
+    "year": "2019"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "",
+    "year": "2018"
+  },
+  {
+    "branch": "IT",
+    "Shift": "",
+    "year": "2018"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "",
+    "year": "2018"
+  },
+  {
+    "branch": "EEE",
+    "Shift": "",
+    "year": "2018"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "",
+    "year": "2017"
+  },
+  {
+    "branch": "IT",
+    "Shift": "",
+    "year": "2017"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "",
+    "year": "2017"
+  },
+  {
+    "branch": "EEE",
+    "Shift": "",
+    "year": "2017"
+  },
+  {
+    "branch": "CSE",
+    "Shift": "",
+    "year": "2016"
+  },
+  {
+    "branch": "IT",
+    "Shift": "",
+    "year": "2016"
+  },
+  {
+    "branch": "ECE",
+    "Shift": "",
+    "year": "2016"
+  },
+  {
+    "branch": "EEE",
+    "Shift": "",
+    "year": "2016"
+  }
+]
