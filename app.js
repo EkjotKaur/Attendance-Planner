@@ -58,6 +58,136 @@ const slotSchema = {
   year: String,
 };
 
+const attendanceSchema = {
+  Day1: {
+    type: Number,
+    default: 0
+  },
+  Day2: {
+    type: Number,
+    default: 0
+  },
+  Day3: {
+    type: Number,
+    default: 0
+  },
+  Day4: {
+    type: Number,
+    default: 0
+  },
+  Day5: {
+    type: Number,
+    default: 0
+  },
+  Day6: {
+    type: Number,
+    default: 0
+  },
+  Day7: {
+    type: Number,
+    default: 0
+  },
+  Day8: {
+    type: Number,
+    default: 0
+  },
+  Day9: {
+    type: Number,
+    default: 0
+  },
+  Day10: {
+    type: Number,
+    default: 0
+  },
+  Day11: {
+    type: Number,
+    default: 0
+  },
+  Day12: {
+    type: Number,
+    default: 0
+  },
+  Day13: {
+    type: Number,
+    default: 0
+  },
+  Day14: {
+    type: Number,
+    default: 0
+  },
+  Day15: {
+    type: Number,
+    default: 0
+  },
+  Day16: {
+    type: Number,
+    default: 0
+  },
+  Day17: {
+    type: Number,
+    default: 0
+  },
+  Day18: {
+    type: Number,
+    default: 0
+  },
+  Day19: {
+    type: Number,
+    default: 0
+  },
+  Day20: {
+    type: Number,
+    default: 0
+  },
+  Day21: {
+    type: Number,
+    default: 0
+  },
+  Day22: {
+    type: Number,
+    default: 0
+  },
+  Day23: {
+    type: Number,
+    default: 0
+  },
+  Day24: {
+    type: Number,
+    default: 0
+  },
+  Day25: {
+    type: Number,
+    default: 0
+  },
+  Day26: {
+    type: Number,
+    default: 0
+  },
+  Day27: {
+    type: Number,
+    default: 0
+  },
+  Day28: {
+    type: Number,
+    default: 0
+  },
+  Day29: {
+    type: Number,
+    default: 0
+  },
+  Day30: {
+    type: Number,
+    default: 0
+  },
+  Day31: {
+    type: Number,
+    default: 0
+  },
+  stdId: String,
+  month: Number,
+  classId: String
+}
+
 const studentSchema = {
   enrollNo: String,
   name: String,
@@ -74,6 +204,7 @@ const User = mongoose.model("User", userSchema);
 const Class = mongoose.model("Class", classSchema);
 const Slot = mongoose.model("Slot", slotSchema);
 const Student = mongoose.model("Student", studentSchema);
+const Attendance = mongoose.model("Attendance", attendanceSchema);
 
 passport.use(User.createStrategy());
 
@@ -130,16 +261,53 @@ app.get("/:presentClassId/:presentBatchId/updateClass", (req, res) => {
 
 app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
   if (req.isAuthenticated()) {
+
+    // For No of Days In Month------------------------------
+    var TodayDate = new Date();
+    var Month = TodayDate.getMonth();
+    var NoOfDays;
+    var year = TodayDate.getFullYear();
+    if(Month===0 || Month===2 || Month===4 || Month===6 || Month===7|| Month===9|| Month===11){
+      NoOfDays = 31;
+    } else if(Month===1){
+      if (((year % 4 === 0) && (year % 100!== 0)) || (year%400 === 0))
+        NoOfDays = 29;
+      else
+        NoOfDays = 28;  
+    } else {
+      NoOfDays = 30;
+    }
+    // For No of Days In Month End-------------------------
+    
     Student.find({ slotId: req.params.presentBatchId }, (err, studentItem) => {
       if (err) {
         console.log(err);
       } else {
+        for(let i=0; i<studentItem.length; i++){
+          Attendance.findOne({stdId: studentItem[i].id, classId: req.params.presentBatchId}, (err, foundRecord) => {
+            if(err){
+              console.log(err);
+            } else {
+              if(!foundRecord){
+                const record = new Attendance({
+                  month: Month,
+                  stdId: studentItem[i].id,
+                  classId: req.params.presentClassId
+                });
+                record.save();
+              } else {
+                // console.log(foundRecord);
+              }
+            }
+          });
+        }
         res.render("attendance", {
           presentClassId: req.params.presentClassId,
           presentBatchId: req.params.presentBatchId,
           presentBatchId: req.params.presentBatchId,
           studentList: studentItem,
           sno: 0,
+          totalDays: NoOfDays
         });
       }
     });
