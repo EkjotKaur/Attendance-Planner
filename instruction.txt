@@ -1,0 +1,3 @@
+How to import json file in mongo atlas
+
+mongoimport --host attendance-shard-00-02.e3ui6.mongodb.net:27017 --db attendanceDB --type json --file slots.json --jsonArray --authenticationDatabase admin --ssl --username admin-EkjotKaur --password Test123
