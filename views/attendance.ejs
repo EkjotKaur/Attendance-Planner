@@ -1,7 +1,7 @@
 <%- include('./partials/top.ejs') %>
   <h1>Attendance</h1>
 
-  <button><a href="/<%= presentClassId %>/newStudent">Add Student</a></button>
+  <button><a href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent">Add Student</a></button>
 
   <p><%= studentList[0].branch %> </p>
   <p><%= studentList[0].Shift %> </p>
@@ -13,6 +13,9 @@
       <% sno+=1 %> 
       <span><%= std.enrollNo %> </span>
       <span><%= std.name %> </span>
+      <form action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
+        <button type="submit">DELETE</button>
+      </form>
     </div>
   <% }) %>
 

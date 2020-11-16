@@ -2,10 +2,10 @@
 
   <h1>NEW STUDENT</h1>
 
-  <form action="/newclass" method="POST">
+  <form action="/<%= presentClassId %>/<%= presentBatchId %>/newStudent" method="POST">
     <input type="text" placeholder="name" name="stdname" > 
-    <input type="text" placeholder="enrollment no" name="enrollno.">  
-    <button type="submit">Submit</button>
+    <input type="text" placeholder="enrollment no" name="enrollno">  
+    <button type="submit">Create</button>
   </form>
 
 </body>
