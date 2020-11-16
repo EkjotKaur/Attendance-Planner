@@ -42,6 +42,7 @@ const classSchema = {
   year: String,
   subject: String,
   userId: String,
+  slotId: String
 };
 
 const slotSchema = {
@@ -110,17 +111,25 @@ app.get('/newclass', (req, res) => {
   }
 });
 
-app.get('/:presentClassId/updateClass', (req, res) => {
+app.get('/:presentClassId/:presentBatchId/updateClass', (req, res) => {
   if(req.isAuthenticated()){
-    res.render('updateClass', {presentClassId: req.params.presentClassId});
+    res.render('updateClass', {presentClassId: req.params.presentClassId, presentBatchId: req.params.presentBatchId});
   } else {
     res.redirect('/login');
   }
 });
 
-app.get('/:presentClassId/attendance', (req, res) => {
+app.get('/:presentClassId/:presentBatchId/attendance', (req, res) => {
   if(req.isAuthenticated()){
-    res.render('attendance', {presentClassId: req.params.presentClassId});
+    Student.find({slotId: req.params.presentBatchId}, (err, studentItem) => {
+      if(err){
+        console.log(err);
+      } else {
+        res.render('attendance', {presentClassId: req.params.presentClassId, presentBatchId: req.params.presentBatchId, studentList: studentItem, sno: 0});
+      }
+    });
+    
+
   } else {
     res.redirect('/login');
   }
@@ -171,19 +180,47 @@ app.post("/login", (req, res) => {
 });
 
 app.post('/newclass', (req, res) => {
-  const batch = new Class({
-    branch: req.body.branch,
-    Shift: req.body.Shift,
-    year: req.body.year,
-    subject: req.body.subject,
-    userId: req.user.id 
-  });
-
-  batch.save();
-  res.redirect('home');
+  if(req.body.year=="2019")
+  {
+    Slot.findOne({branch: req.body.branch, Shift: req.body.Shift, year: req.body.year}, (err, foundShift) => {
+      if(err){
+        console.log(err);
+      } else {
+        const batch = new Class({
+          branch: req.body.branch,
+          Shift: req.body.Shift,
+          year: req.body.year,
+          subject: req.body.subject,
+          userId: req.user.id,
+          slotId: foundShift.id
+        });
+      
+        batch.save();
+        res.redirect('home');
+      }
+    });
+  } else {
+    Slot.findOne({branch: req.body.branch, year: req.body.year,}, (err, foundShift) => {
+      if(err){
+        console.log(err);
+      } else {
+        const batch = new Class({
+          branch: req.body.branch,
+          Shift: "",
+          year: req.body.year,
+          subject: req.body.subject,
+          userId: req.user.id,
+          slotId: foundShift.id
+        });
+      
+        batch.save();
+        res.redirect('home');
+      }
+    });
+  } 
 });
 
-app.post('/:presentClassId/updateClass', (req, res) => {
+app.post('/:presentClassId/:presentBatchId/updateClass', (req, res) => {
   Class.findOneAndUpdate({_id: req.params.presentClassId}, {subject: req.body.subject}, (err, updatedBatch) => {
     if(err){
       console.log(err);
@@ -193,7 +230,7 @@ app.post('/:presentClassId/updateClass', (req, res) => {
   });
 });
 
-app.post('/:presentClassId/deleteClass', (req, res) => {
+app.post('/:presentClassId/:presentBatchId/deleteClass', (req, res) => {
   Class.findByIdAndDelete({_id: req.params.presentClassId}, (err, deletedClass) => {
     if(err){
       console.log(err);
