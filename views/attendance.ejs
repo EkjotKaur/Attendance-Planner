@@ -3,5 +3,19 @@
 
   <button><a href="/<%= presentClassId %>/newStudent">Add Student</a></button>
 
+  <p><%= studentList[0].branch %> </p>
+  <p><%= studentList[0].Shift %> </p>
+  <p><%= studentList[0].year %> </p>
+
+  <% studentList.forEach(std => { %>
+    <div>
+      <span><%= sno+1 %>  </span>
+      <% sno+=1 %> 
+      <span><%= std.enrollNo %> </span>
+      <span><%= std.name %> </span>
+    </div>
+  <% }) %>
+
+
 </body>
 </html>
