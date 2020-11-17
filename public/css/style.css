@@ -1,11 +1,13 @@
-.navbar{
+.navbar .navbar-expand-sm{
 	padding: 5px;
 	margin-bottom: 30px; 
+	 
 	
 	
 }
 .navbar-nav .ml-auto{
 	margin-left: auto !important;
+	height: 60px;
 
 
 }
@@ -382,5 +384,130 @@
 		text-decoration: underline;
 	}
 
+#footer{
+  background-color: #212121;
+  height: 90px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
+
+<!---heading---->
   
+  @media (max-width: 1020px) {
+      .jumbotron h1 {
+      font-size: 9em;
+    }
+  p {
+      font-size: 4em;
+    }
+  }
+
+ @media screen and (min-width: 992px){
+    .jumbotron h1 {
+      font-size: 6em;
+    }
+    p{
+      font-size: 2em;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .jumbotron h1 {
+      font-size: 6em;
+    }
+    p{
+      font-size: 2em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .jumbotron h1 {
+      font-size: 3.5em;
+    }
+    p{
+      font-size: 1.8em;
+    }
+  }
+ 
+ <!-------about-------->
+
+   @media (max-width: 1020px) {
+      .myabout h3 {
+      font-size: 8em;
+    }
+  p {
+      font-size: 1.9em;
+    }
+  }
+
+ @media screen and (min-width: 992px){
+    .myabout h3 {
+      font-size: 6em;
+    }
+    p{
+      font-size: 1.7em;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .myabout h3 {
+      font-size: 6em;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .myabout h3 {
+      font-size: 3.5em;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
+
+ <!------feature------>
+
+
+   @media (max-width: 1020px) {
+      .main-timeline h6 {
+      font-size: 4em;
+    }
+  p {
+      font-size: 2em;
+    }
+  }
+
+ @media screen and (min-width: 992px){
+    .main-timeline h6{
+      font-size: 2em;
+    }
+    p{
+      font-size: 1.3em;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .main-timeline h6 {
+      font-size: 2em;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-timeline h6 {
+      font-size: 1.5em;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
  
