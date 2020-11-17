@@ -11,7 +11,7 @@
   <p><%= TodayDate %> </p>
   <p><%= Year %> </p> <!--Present Year-->
 
-  
+
   <div>P - Present</div>
   <div>A - Absent</div>
   <div>NW - not a working day</div>
@@ -19,6 +19,18 @@
   
   <div><h3>Don't Forget To Save The Attendance.</h3></div>
   <div><button type="submit">Save Attendance</button></div>
+
+  <% studentList.forEach(std => { %>
+    <div>
+      <span><%= sno+1 %>  </span>
+      <% sno+=1 %> 
+      <span><%= std.enrollNo %> </span>
+      <span><%= std.name %> </span>
+      <form action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
+        <button type="submit">DELETE</button>
+      </form>
+    </div>
+  <% }) %>
 
   <div class="row">
     <div class="col-3">
