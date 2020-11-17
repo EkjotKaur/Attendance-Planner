@@ -8,6 +8,7 @@
 .navbar-nav .ml-auto{
 	margin-left: auto !important;
 	height: 60px;
+	font-size:1.5rem; 
 
 
 }
@@ -331,6 +332,7 @@
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
+		margin-top: 20px;
 	}
     .signup-form h2 {
 		color: #333;
@@ -384,17 +386,7 @@
 		text-decoration: underline;
 	}
 
-#footer{
-  background-color: #212121;
-  height: 90px;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  line-height: 50px;
-  color: #aaa;
-  text-align: center;
-  width: 100%;
-}
+
 
 <!---heading---->
   
@@ -510,4 +502,82 @@
       font-size: 1em;
     }
   }
+
+  /* Style the footer */
+.footer{
+  	background-color:black;
+ position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;
+   color: white;
+   text-align: center;
+}
+
+  <!----contact_card----->
+  
+  @media (max-width: 1020px) {
+      .details .center h2 {
+      font-size: 4em;
+    }
+  p {
+      font-size: 2em;
+  } 
+  }
+
+ @media screen and (min-width: 992px){
+    .details .center h2{
+      font-size: 1.8em;
+    }
+    p{
+      font-size: 1em;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    .details .center h2 {
+      font-size: 1em;
+    }
+    p{
+      font-size: 0.6em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .details .center h2{
+      font-size: 0.9em;
+    }
+    p{
+      font-size: 0.4em;
+    }
+
+  }
+ 
+ <!----footter----->
+  
+  @media (max-width: 1020px) {
+      .footer p {
+      font-size: 1.5em;
+    }
+  }
+
+ @media screen and (min-width: 992px){
+      .footer p {
+      font-size: 1em;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+     .footer p {
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+     .footer p {
+      font-size: 0.8em;
+    }
+  }
+
+
  
