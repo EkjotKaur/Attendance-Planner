@@ -52,7 +52,7 @@ const classSchema = {
   year: String,
   subject: String,
   userId: String,
-  slotId: String,
+  slotId: String
 };
 
 const slotSchema = {
@@ -117,6 +117,7 @@ app.get("/home", function (req, res) {
         res.render("home", {
           classList: classes,
           name: req.user.name,
+          username: req.user.username
         });
       }
     });
@@ -143,6 +144,18 @@ app.get("/:presentClassId/:presentBatchId/updateClass", (req, res) => {
     res.redirect("/login");
   }
 });
+
+app.get("/:presentClassId/:presentBatchId/deleteClass", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("deleteClass", {
+      presentClassId: req.params.presentClassId,
+      presentBatchId: req.params.presentBatchId,
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
 
 app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
   if (req.isAuthenticated()) {
@@ -225,10 +238,8 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
           TodayDate: TodayDate,
           dd: TodayDate.getDate(),
         });
-      }
-    });         
-
-      
+      } 
+    }); 
   } else {
     res.redirect("/login");
   }
@@ -245,9 +256,7 @@ app.get("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
   }
 });
 
-app.get("/submitted", (req, res) => {
-  res.render("submitted");
-});
+
 
 app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
   if (req.isAuthenticated()){
@@ -370,6 +379,7 @@ app.post("/newclass", (req, res) => {
             subject: req.body.subject,
             userId: req.user.id,
             slotId: foundShift.id,
+            canOpen: true
           });
 
           batch.save();
@@ -452,15 +462,35 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
           req.params.presentBatchId +
           "/attendance"
       );
-
-        slotId: foundSlot.id
-      }
+      
       newStudent.save();
       res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
 
+    }
   });
 });
 
+app.post(
+  "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
+  (req, res) => {
+    Student.findOneAndDelete(
+      { _id: req.params.presentStudentId },
+      (err, deletedStudent) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect(
+            "/" +
+              req.params.presentClassId +
+              "/" +
+              req.params.presentBatchId +
+              "/attendance"
+          );
+        }
+      }
+    );
+  }
+);
 
 app.post(
   "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
@@ -598,13 +628,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
       }
     }
   });
-  res.redirect(
-    "/" +
-      req.params.presentClassId +
-      "/" +
-      req.params.presentBatchId +
-      "/attendance"
-  );
+  res.redirect("/" +req.params.presentClassId +"/" +req.params.presentBatchId +"/attendance");
 });
 
 app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (req, res) => {
@@ -620,7 +644,7 @@ app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (re
         } 
       });
     }
-  });
+  }); 
 });
 
 app.listen(8080, function () {

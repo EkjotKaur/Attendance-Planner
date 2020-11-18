@@ -7,25 +7,33 @@
     <!-- The sidebar -->
     <div class="sidebar">
       <a class="active text-center width font-weight-bold" href="#">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
-      <a class="active text-center font-italic" id="name" href="#">Bhavya Sehgal</a>
-      <a class="active text-center font-italic"id="mail" href="#">bhavyasehgal05@gmail.com</a>
-      <a class="width" href="#home">Home</a>
-      <a class="width" href="#about">About</a>
-      <a class="width" href="#contact">Contact</a>
+      <a class="active text-center font-italic" id="name" href="#"><%= name %> </a>
+      <a class="active text-center font-italic"id="mail" href="#"><%= username %> </a>
+      <a class="width" href="/">Home</a>
+      <a class="width" href="/#About">About</a>
+      <a class="width" href="/#Contact">Contact</a>
       <a class="width" href="/logout">Logout</a>
     </div>
     
     <!-- Page content -->
           <div class="content box container display-3">
-              <div >
+              <div>
                 <div class="hide">
                 <h1>No Batch Exists</h1>
                 <h1>To create New Click below :</h1>
                 <br>
+                </div>
                 <!-- Button trigger modal -->
-                <button class="btn btn-outline-info color-btn btn-lg "data-toggle="modal" data-target="#exampleModal">
-                  <a href="#">New Batch</a>
-                </button>
+                <div class="row justify-content-end mr-5 mb-2"id="main-btn">
+                  <div col-12>
+                    <button class="btn btn-outline-info color-btn btn-lg "id="main-btn-edit" data-toggle="modal" data-target="#exampleModal">
+                      <i class="fa fa-plus ml-1 mr-0" aria-hidden="true"></i>
+                      <a href="#">New Batch</a>
+                    </button>
+                  </div>
+                  
+                </div>
+                
 
                   <!-- Modal -->
                   <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -80,7 +88,6 @@
                                     </div>
                                   </select>
                                 </div>
-                                <!-- <input type="text" placeholder="Shift" name="Shift"class="width">  dropdown -->
                                 <div class="form-group">
                                   <label for="exampleFormControlSelect1">Select Year</label>
                                   <select class="form-control" id="exampleFormControlSelect1" name="year" >
@@ -107,31 +114,47 @@
                     </div>
                   </div>
                   <!--Modal end-->
-                  </div>
+
                   <div class="content mr-1 ml-4 container display-3">
                     
                     <div class="row justify-content-around ">
                       
                       <% classList.forEach(batch => { %> 
                         
-                        <div class="col-lg-5 col-md-12 mx-0 my-4">
+                        <div class="col-lg-5 col-md-9 col-sm-11 col-12 mx-0 my-4">
                         <div class="card ">
-                            <div class="card-body" style="border: 1px solid black;">
+                            <div class="card-body card-edit">
                               <a href="/<%= batch.id %>/<%= batch.slotId %>/attendance" >
-                                <h5 class="card-title"><%= batch.branch %></h5>
-                                <h5 class="card-title"><%= batch.Shift %></h5>
-                                <h5 class="card-title"><%= batch.year %></h5>
+                                <h5 class="card-title">Branch-<%= batch.branch %> <%= batch.Shift %></h5>
+                                <h5 class="card-title">Year-<%= batch.year %></h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><%= batch.subject %></h6>
-                                <button class="card-link btn btn-outline-info color-btn btn-lg"><a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a></button>
-                                  <form action="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" method="POST">
-                                    <button class="card-link btn btn-outline-info color-btn btn-lg" type="submit">DELETE</button>
-                                  </form>
+                                <div class="row justify-content-center">
+                                  
+                                  <div class="col-6">
+                                    <!-- Button trigger modal -->
+                                    <button class="card-link btn btn-outline-secondary color-btn btn-lg" data-toggle="modal" data-target="#exampleModal1">
+                                    <a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a>
+                                    </button>
+                                    
+                                    
+                                  
+                                  </div>
+                                  <div class="col-6">
+                                    
+                                    <button class="card-link btn btn-secondary color-btn btn-lg ">
+                                      <a href="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" class="text-light" >DELETE</a>
+                                    </button>
+                                  
+                                     
+                                
+                                  </div>
+                                </div>
+                                
                               </a>
                               </div>
                             </div>
                         </div>
                        
-
                         
                       <% }); %> 
                       
@@ -142,15 +165,11 @@
               
               </div>
             
-
           </div>
           
        
-
-
   <script src="home.ejs"></script>      
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
 </body>
 </html>

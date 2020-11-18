@@ -11,6 +11,7 @@
 	font-size:1.5rem; 
 
 
+
 }
 .navbar-brand .mr-auto{
 	margin-right: auto !important;	
@@ -332,7 +333,9 @@
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
+
 		margin-top: 20px;
+
 	}
     .signup-form h2 {
 		color: #333;
@@ -386,6 +389,18 @@
 		text-decoration: underline;
 	}
 
+
+#footer{
+  background-color: #212121;
+  height: 90px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
 
 
 <!---heading---->
@@ -503,6 +518,9 @@
     }
   }
 
+ 
+
+
   /* Style the footer */
 .footer{
   	background-color:black;
@@ -581,3 +599,4 @@
 
 
  
+
