@@ -10,26 +10,27 @@
 </head>
 <body style="position:relative;"  data-spy="scroll " data-target=".navbar" data-offset="50">
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top nav-height">
   <div class="container">
-  <a class="navbar-brand mr-auto " href="#">Presence</a>
+  <a class="navbar-brand mr-auto " href="#">
+    <img class="img-responsive" src="/images/presence2.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-      <a class="nav-link" href="#About"><i class="fa fa-star-o fa-xs " aria-hidden="true" style="color: white;"></i> About</a>
+      <a class="nav-link px-1" href="#About" style="font-size: 1.2rem"><i class="fa fa-star-o fa-xs " aria-hidden="true" style="color: white; "></i>About</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/login"><i class="fa fa-sign-in fa-xs " aria-hidden="true" style="color: white"></i>
+      <a class="nav-link px-1" href="/login" style="font-size: 1.2rem"><i class="fa fa-sign-in fa-xs " aria-hidden="true" style="color: white"></i>
       Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/signup"><i class="fa fa-user fa-xs " aria-hidden="true" style="color: white"></i> Sign Up</a>
+      <a class="nav-link px-1" href="/signup" style="font-size: 1.2rem"><i class="fa fa-user fa-xs " aria-hidden="true" style="color: white"></i> Sign Up</a>
     </li>  
     <li class="nav-item">
-      <a class="nav-link" href="#Contact"><i class="fa fa-phone fa-xs " aria-hidden="true" style="color: white"></i>  Contact</a>
+      <a class="nav-link px-1" href="#Contact" style="font-size: 1.2rem"><i class="fa fa-phone fa-xs " aria-hidden="true" style="color: white"></i>  Contact</a>
     </li> 
     </ul>
   </div> 
@@ -39,6 +40,7 @@
 
 
  <!-- HEADING ANIMATION-->
+
 <div class="jumbotron jumbotron bg-cover">
     <div class="overlay"></div>
     <div class="container">
@@ -49,8 +51,8 @@
       <br>
 
 
-      <a href="/login" class="btn btn-info mybtn" role="button">Login</a>
-        <a href="/signup" class="btn btn-info mybtn" role="button">SignUp</a>
+      <a href="/login" class="btn btn-info mybtn btn-lg" role="button"><h3 class="px-lg-2 py-lg-1">Login</h3></a>
+        <a href="/signup" class="btn btn-info mybtn btn-lg" role="button"><h3 class="px-lg-2 py-lg-1">Sign Up</h3></a>
     </div>
   </div>
   <br>
@@ -64,78 +66,83 @@
 
 
  <!-- ABOUT SECTION-->
+ <section>
  <div class="container">
-<div id="About" class="myabout container-fluid text-banner">
-<h3 style="color:black;font-family: Courier New;text-align: left;letter-spacing: 0.05em;font-weight: bold;text-align: center;margin-top: 50px;">ABOUT</h3>
-<p style="color:black;font-family: Roboto;text-align: left;letter-spacing: 0.05em;font-weight:200;text-align: center;">This attendance management system is simple and user friendly. It is well equipped to handle attendance related task and  it has great features which make strenuous tasks hassle-free, like calculating attendance of every student.
+<div id="About" class="jumbotron jumbotron bg-cover2">
+  <div class="overlay"></div>
+<h2 style="color:black;font-family: Courier New;letter-spacing: 0.05em;font-weight: bold;text-align: center;margin-top: 50px;font-size: 3rem">ABOUT</h2>
+<h6 style="color:black;font-family: Roboto;letter-spacing: 0.05em;text-align: center; font-size:2rem">This attendance management system is simple and user friendly. It is well equipped to handle attendance related task and  it has great features which make strenuous tasks hassle-free, like calculating attendance of every student.
 Blending modern and traditional methods is the highlight of this website is to encourage customers to go paperless.
 Especially made with an Indian teacher perspective in mind ,it is best suited for Indian teachers.
-</p>
+</h6>
 </div>
+</div>
+</section>
 <br>
+
  <!-- FEATURE SECTION-->
  <section>
-    <div class="container px-5">
+    <div class="container-fluid px-5">
       <div class="row">
         <div class="col-md-12">
           <div class="main-timeline" data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="300">
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
-              <div class="timeline-content">
-                <h6 class="center-align font-weight-bolder pt-1 text-center" >STEP 1: Sign Up</h6>
+              <div class="timeline-content px-2 py-1 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center" >STEP 1: Sign Up</h3>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <img src="/images/login.png" alt="" height="200" width="434"
+                    <img src="/images/login.png" alt="" 
                       class=" mt-2 w-100 mx-auto">
                   </div>
                   <div class="col-lg-8 col-md-8 col-sm-8 px-4">
-                    <p>Create your account by Signing-up.
-                    Enter the required details and then you're good to go.
-                    Your password is secure and privacy is our prior concern.  </p>
+                    <h5>Create your account by Signing-up.
+                    Enter the required details and then you're good.
+                  </h5>
                   </div>
                 </div>
               </div>
             </div>
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
-              <div class="timeline-content">
-                <h6 class="center-align font-weight-bolder pt-1 text-center">STEP 2: Create New Batch/Class </h6>
+              <div class="timeline-content px-2 py-1">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 2: Create New Batch/Class </h3>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <img src="/images/batch.png" alt="" height="200" width="434"
+                    <img src="/images/batch.png" alt=""
                       class=" mt-2 w-100 mx-auto">
                   </div>
-                  <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
-                    <p>Here, you can create the batch/class for your choice. 
+                  <div class="col-lg-8 col-md-8 col-sm-8 " >
+                    <h5>Here, you can create the batch/class for your choice. 
                     and it offer some features by which you can add new students to the list and can remove them too.
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
             </div>
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
-              <div class="timeline-content">
-                <h6 class="center-align font-weight-bolder pt-1 text-center">STEP 3: Mark the Attendance </h6>
+              <div class="timeline-content px-2 py-1 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 3: Mark the Attendance </h3>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <img src="/images/attendance_list.png" alt="" height="200" width="434"
+                    <img src="/images/attendance_list.png" alt="" 
                       class=" mt-2 w-100 mx-auto">
                   </div>
                   <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
-                    <p>Mark Absent or Present and save it for later.
-                    It allows to know the no. of days a students was present/absent. </p>
+                    <h5>Mark Absent or Present and save it for later.
+                    It allows to know the no. of days a students was present/absent. </h5>
                   </div>
                 </div>
               </div>
             </div>
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
-              <div class="timeline-content">
-                <h6 class="center-align font-weight-bolder pt-1 text-center">STEP 4: Download Attendance</h6>
+              <div class="timeline-content px-2 py-2 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 4: Download Attendance</h3>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <img src="/images/download.png" alt="" height="200" width="434"
+                    <img src="/images/download.png" alt="" 
                       class=" mt-2 w-100 mx-auto">
                   </div>
                   <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
-                    <p>You can easily download attendance and sent it to whereever you want to.  </p>
+                    <h5>You can easily download attendance and sent it to whereever you want to.  </h5>
                   </div>
                 </div>
               </div>
@@ -144,7 +151,6 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
           </div>
         </div>
       </div>
-    </div>
   </section>
   <br>
   <br>
@@ -153,11 +159,11 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
 
 
  <!-- CONTACT SECTION-->
- <div class="container">
+ <div class="container my-3 py-5">
 <div id="Contact" class="container text-banner">
   <h3 style="color:black;font-family: Courier New;text-align: left;font-size:3vw;letter-spacing: 0.05em;font-weight: bold;text-align: center;margin-top: 50px">CONTACT</h3><br><br>
   <div class="row d-flex justify-content-around ">
-  <div class="card col-md-4 mt-2 mb-2">
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
     <div class="image">
       <img src="https://pbs.twimg.com/profile_images/1325504533024309249/atRtEvAR_400x400.jpg">
     </div>
@@ -176,14 +182,14 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
 
   
   
-  <div class="card col-md-4 mt-2 mb-2">
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
     <div class="image">
       <img src="https://pbs.twimg.com/profile_images/1284764027088891904/P7NWsF5i_400x400.jpg">
     </div>
     <div class="details">
       <div class="center">
         <h2 style="color: red;">RISHIKA</h2>
-        <P>FRONTEND DEVELOPER</P>
+        <p>FRONTEND DEVELOPER</p>
         
         <ul>
           <li><a href=" https://twitter.com/R_kanojiaaa?s=08"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -195,14 +201,14 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
     </div>
   
   
-  <div class="card col-md-4 mt-2 mb-2">
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
     <div class="myimg image">
       <img src="https://media-exp1.licdn.com/dms/image/C5603AQFH4xk-EvSiPw/profile-displayphoto-shrink_200_200/0?e=1611187200&v=beta&t=cVN7R1FpJBOk6EivLOOiAZmj8lRohhQdc9ji7Z5Nptg">
     </div>
     <div class="details">
       <div class="center">
         <h2 style="color: red;">BHAVYA SEHGAL</h2>
-        <P>FRONTEND DEVELOPER</P>
+        <p>FRONTEND DEVELOPER</p>
         
         <ul>
           <li><a href="https://github.com/Bhavya-Sehgal"><i class="fa fa-github" aria-hidden="true"></i></a></li>
@@ -219,11 +225,18 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
 <br>
 <hr>
 
-
 <div class="footer">
-  <p>Made with ❤️ <br><i class="fa fa-copyright"></i>
-    Copyright 2020, Code Her Things.All Rights Reserved.</p>
+  <div id="button"></div>
+<div id="container">
+<div id="cont">
+<div class="footer_center">
+     <h5>Made with ❤️ <br><i class="fa fa-copyright"></i>
+     2020 Copyright, Code Her Things.</h5>
+   </div>
 </div>
+</div>
+</div>
+<!-- Footer -->
 
 
 
