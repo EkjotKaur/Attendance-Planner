@@ -52,7 +52,7 @@ const classSchema = {
   year: String,
   subject: String,
   userId: String,
-  slotId: String
+  slotId: String,
 };
 
 const slotSchema = {
@@ -89,6 +89,7 @@ const Class = mongoose.model("Class", classSchema);
 const Slot = mongoose.model("Slot", slotSchema);
 const Student = mongoose.model("Student", studentSchema);
 const Attendance = mongoose.model("Attendance", attendanceSchema);
+
 
 passport.use(User.createStrategy());
 
@@ -201,6 +202,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     if(foundRecord.Days[index]==dd){
                       console.log("Already Submitted");
                     }
+                    
                   }
                   // if(foundRecord.Day[foundRecord.totalDays-1]==dd)
                     // res.redirect("/submitted");
@@ -225,6 +227,8 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
         });
       }
     });         
+
+      
   } else {
     res.redirect("/login");
   }
@@ -244,6 +248,23 @@ app.get("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
 app.get("/submitted", (req, res) => {
   res.render("submitted");
 });
+
+app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
+  if (req.isAuthenticated()){
+    Attendance.find({classId: req.params.presentClassId}, (err, att) => {
+      Student.find({slotId: req.params.presentBatchId},(err, std) => {
+        Class.findOne({_id: req.params.presentClassId}, (err, cl) => {
+          res.render("record", {record: att, std: std, Class: cl});
+        });
+
+        
+      });
+    });
+  }  else {
+    res.redirect("/login");
+  }
+});
+
 
 app.get("/logout", (req, res) => {
   req.logout();
@@ -283,6 +304,7 @@ app.post("/login", (req, res) => {
       });
     }
   });
+
 });
 
 app.post("/newclass", (req, res) => {
@@ -301,6 +323,52 @@ app.post("/newclass", (req, res) => {
             userId: req.user.id,
             slotId: foundShift.id,
             canOpen: true
+          });
+
+          batch.save();
+          res.redirect("home");
+        }
+      }
+    );
+  } else {
+    Slot.findOne(
+      { branch: req.body.branch, year: req.body.year },
+      (err, foundShift) => {
+        if (err) {
+          console.log(err);
+        } else {
+          const batch = new Class({
+            branch: req.body.branch,
+            Shift: "",
+            year: req.body.year,
+            subject: req.body.subject,
+            userId: req.user.id,
+            slotId: foundShift.id,
+          });
+
+          batch.save();
+          res.redirect("home");
+        }
+      }
+    );
+  }
+});
+
+app.post("/newclass", (req, res) => {
+  if (req.body.year == "2019") {
+    Slot.findOne(
+      { branch: req.body.branch, Shift: req.body.Shift, year: req.body.year },
+      (err, foundShift) => {
+        if (err) {
+          console.log(err);
+        } else {
+          const batch = new Class({
+            branch: req.body.branch,
+            Shift: req.body.Shift,
+            year: req.body.year,
+            subject: req.body.subject,
+            userId: req.user.id,
+            slotId: foundShift.id,
           });
 
           batch.save();
@@ -360,8 +428,10 @@ app.post("/:presentClassId/:presentBatchId/deleteClass", (req, res) => {
 });
 
 app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
-  Slot.findById({ _id: req.params.presentBatchId }, (err, foundSlot) => {
-    if (err) {
+
+  Slot.findById({_id: req.params.presentBatchId}, (err, foundSlot) => {
+    if(err){
+
       console.log(err);
     } else {
       newStudent = new Student({
@@ -370,6 +440,7 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
         branch: foundSlot.branch,
         Shift: foundSlot.Shift,
         year: foundSlot.year,
+
         slotId: foundSlot.id,
       });
       newStudent.save();
@@ -380,9 +451,15 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
           req.params.presentBatchId +
           "/attendance"
       );
-    }
+
+        slotId: foundSlot.id
+      }
+      newStudent.save();
+      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+
   });
 });
+
 
 app.post(
   "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
@@ -444,7 +521,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   total = 0;
                   Attendance.updateOne(
                     { _id: att.id },
-                    { $push: { Days: [0] } },
+                    { $push: { Days: [-day] } },
                     (err, updateAtt) => {
                       if (err) {
                         console.log(err);
@@ -454,7 +531,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 }
-                let totalDaysAttendance = att.totalDays + 1;
+                let totalDaysAttendance = att.Days.length + 1;
                 Attendance.findOneAndUpdate(
                   { _id: att.id },
                   { present: total, totalDays: totalDaysAttendance },
@@ -467,14 +544,14 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   }
                 );
               } else {
-               let totalDays = att.totalDays;
-               let total;
-               if(att.Days[totalDays-1]==day){
+               let totalDays = att.Days.length;
+               let total = att.present;
+               if(att.Days[totalDays-1]==day || att.Days[totalDays-1]==-day){
                 //  res.redirect("/submitted");
                 console.log("Already Submitted!!!!");
                } else {
                 if (req.body.dd[i] == 1) {
-                  total = 1;
+                  total += 1;
                   console.log(foundStudent[i].name);
                   Attendance.updateOne(
                     { _id: att.id },
@@ -488,10 +565,10 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 } else {
-                  total = 0;
+                  total += 0;
                   Attendance.updateOne(
                     { _id: att.id },
-                    { $push: { Days: [0] } },
+                    { $push: { Days: [-day] } },
                     (err, updateAtt) => {
                       if (err) {
                         console.log(err);
@@ -527,6 +604,17 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
       req.params.presentBatchId +
       "/attendance"
   );
+});
+
+app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (req, res) => {
+  Student.findOneAndDelete({_id: req.params.presentStudentId}, (err, deletedStudent) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+    }
+  });
+
 });
 
 app.listen(8080, function () {
