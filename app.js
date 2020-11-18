@@ -201,6 +201,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     if(foundRecord.Days[index]==dd){
                       console.log("Already Submitted");
                     }
+                    
                   }
                   // if(foundRecord.Day[foundRecord.totalDays-1]==dd)
                     // res.redirect("/submitted");
@@ -244,6 +245,23 @@ app.get("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
 app.get("/submitted", (req, res) => {
   res.render("submitted");
 });
+
+app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
+  if (req.isAuthenticated()){
+    Attendance.find({classId: req.params.presentClassId}, (err, att) => {
+      Student.find({slotId: req.params.presentBatchId},(err, std) => {
+        Class.findOne({_id: req.params.presentClassId}, (err, cl) => {
+          res.render("record", {record: att, std: std, Class: cl});
+        });
+
+        
+      });
+    });
+  }  else {
+    res.redirect("/login");
+  }
+});
+
 
 app.get("/logout", (req, res) => {
   req.logout();
@@ -444,7 +462,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   total = 0;
                   Attendance.updateOne(
                     { _id: att.id },
-                    { $push: { Days: [0] } },
+                    { $push: { Days: [-day] } },
                     (err, updateAtt) => {
                       if (err) {
                         console.log(err);
@@ -454,7 +472,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 }
-                let totalDaysAttendance = att.totalDays + 1;
+                let totalDaysAttendance = att.Days.length + 1;
                 Attendance.findOneAndUpdate(
                   { _id: att.id },
                   { present: total, totalDays: totalDaysAttendance },
@@ -467,14 +485,14 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   }
                 );
               } else {
-               let totalDays = att.totalDays;
-               let total;
-               if(att.Days[totalDays-1]==day){
+               let totalDays = att.Days.length;
+               let total = att.present;
+               if(att.Days[totalDays-1]==day || att.Days[totalDays-1]==-day){
                 //  res.redirect("/submitted");
                 console.log("Already Submitted!!!!");
                } else {
                 if (req.body.dd[i] == 1) {
-                  total = 1;
+                  total += 1;
                   console.log(foundStudent[i].name);
                   Attendance.updateOne(
                     { _id: att.id },
@@ -488,10 +506,10 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 } else {
-                  total = 0;
+                  total += 0;
                   Attendance.updateOne(
                     { _id: att.id },
-                    { $push: { Days: [0] } },
+                    { $push: { Days: [-day] } },
                     (err, updateAtt) => {
                       if (err) {
                         console.log(err);
