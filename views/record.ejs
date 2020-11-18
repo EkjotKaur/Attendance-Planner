@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <title>Presence</title>
+</head>
+<body class="bg-dark">
+
+      
+   
+
+  <div class="bg-dark text-white mx-2 px-2 py-4" style=" width: 100%; top: 0; ">
+    
+     <% if (Class.branch=="CSE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Computer Science <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="IT") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Information Technology <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="ECE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Electronics And Communication <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="EEE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Electrical And Electronics <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+ 
+  <div class="m-0" style="font-size: x-large; font-style: italic ;">Subject: <%= Class.subject %></div>
+  <% const month = new Date().getMonth(); %>
+  <% const Year = new Date().getFullYear(); %>
+  
+  <% if (month==0) { %>
+    <div>Month: January, <%= Year %></div>
+  <% } %>
+  <% if (month==1) { %>
+    <div>Month: February, <%= Year %></div>
+  <% } %>
+  <% if (month==2) { %>
+    <div>Month: March, <%= Year %></div>
+  <% } %>
+  <% if (month==3) { %>
+    <div>Month: April, <%= Year %></div>
+  <% } %>
+  <% if (month==4) { %>
+    <div>Month: May, <%= Year %></div>
+  <% } %>
+  <% if (month==5) { %>
+    <div>Month: June, <%= Year %></div>
+  <% } %>
+  <% if (month==6) { %>
+    <div>Month: July, <%= Year %></div>
+  <% } %>
+  <% if (month==7) { %>
+    <div>Month: August, <%= Year %></div>
+  <% } %>
+  <% if (month==8) { %>
+    <div>Month: September, <%= Year %></div>
+  <% } %>
+  <% if (month==9) { %>
+    <div>Month: October, <%= Year %></div>
+  <% } %>
+  <% if (month==10) { %>
+    <div>Month: November, <%= Year %></div>
+  <% } %>
+  <% if (month==11) { %>
+    <div>Month: December, <%= Year %></div>
+  <% } %>
+ 
+  
+  </div>
+
+ 
+  <div>
+    <table class="table" style="top: 200px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Enrollment No.</th>
+          <th scope="col">Name</th>
+          <% record[0].Days.forEach(day => { %>
+            <% let dd = Math.abs(day) %> 
+            <th scope="col"><%= dd %></th>
+          <% }) %> 
+          <th scope="col">Present</th>
+          <th scope="col">Total Days</th>
+        </tr>
+      </thead>
+      <% let i=0; %> 
+    <% for(let j=0; j<record.length; j++){ %>
+        <% const att=record[j] %> 
+        <% const student=std[j] %> 
+        <tbody class="bg-light">
+          <tr>
+            <% i=i+1 %> 
+            <th scope="row"><%= i %> </th>
+            <td> <%= std[j].enrollNo %> </td>
+            <td> <%= std[j].name %> </td>
+            <% att.Days.forEach(day => { %>
+              <% if (day>0) { %>
+                <td>Present</td>
+              <% } else { %>
+                <td>Absent</td>
+              <% } %>
+              
+            <% }) %> 
+            <td><%= att.present %></td>
+            <td><%= att.totalDays %> </td>
+          </tr>
+        </tbody>
+      
+    <% } %>
+  </table>
+  </div>
+</body>
+</html>

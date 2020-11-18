@@ -1,0 +1,248 @@
+.top-nav{
+    background: #16a596 ;
+    height: 60px;
+    color:white;
+    width:100% !important;
+    box-shadow: 10px;
+    position: fixed;
+    top: 0;
+    z-index:500;
+}
+body{
+    background:white;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+a,a:active,a:hover,a:link{
+  text-decoration: none;
+  color: black;
+}
+*{
+  box-sizing: border-box;
+}
+
+#name{
+  padding-bottom: 0%;
+  font-weight: 200px;
+  width:100%;
+}
+#mail{
+  padding-bottom: 32px;
+  width:100%;
+}
+.width{
+  width:100%;
+}
+.box{
+    text-align:center;
+    margin-top:100px;
+    margin-left:70px;
+    padding: 10px;
+    color:rgb(165, 159, 159);
+}
+#head{
+  padding:10px;
+  width:100% !important;
+}
+@media only screen and (max-width:425px){
+  .top-nav{
+    height: 80px;
+    width:100%;
+    position: absolute;
+  }
+  .box h1{
+    font-size: 25px;
+  }
+  .sidebar{
+    top:80px !important;
+  }
+  #main-btn{
+    text-align: end;
+    margin-right: 0;
+    padding-left:2px;
+  }
+  #main-btn-edit{
+    text-align: end;
+  }
+}
+.color-btn:hover{
+    background:#16a596 ;
+}
+.card-edit{
+  text-transform:uppercase;
+  box-shadow: 5px 5px 13px #aaa;
+  background:#f5f5f5;
+}
+.icon{
+  padding:10px;
+}
+.form-edit{
+  font-size: 30px;
+}
+#main-btn{
+  font-size: 40px;
+  padding:6px;
+}
+#main-btn-edit{
+  box-shadow: 4px 4px;
+}
+.popup{
+  border-top: 3px solid #16a596;
+}
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    top:60px;
+    width: 240px;
+    background-color: #2b2727;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    color:white;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color:white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #595b5d;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color:#595b5d;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+  .hide{
+    display:none;
+  }
+  /* 
+ .nav2{
+   float:left;
+   background:#2b2727;
+   top:60px;
+   position: fixed;
+   width:100%;
+   color:white;
+   margin-left:22px;
+   height:60px;
+   padding:18px;
+ } */
+
+ /* Delete modal */
+ .modal-confirm {		
+	color: #636363;
+	width: 400px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+	font-size: 14px;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -2px;
+}
+.modal-confirm .modal-body {
+	color: #999;
+}
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;		
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+	color: #999;
+}		
+.modal-confirm .icon-box {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 9;
+	text-align: center;
+	border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+	color: #f15e5e;
+	font-size: 46px;
+	display: inline-block;
+	margin-top: 13px;
+}
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #60c7c1;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	min-width: 120px;
+	border: none;
+	min-height: 40px;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.modal-confirm .btn-secondary {
+	background: #c1c1c1;
+}
+.modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+	background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+	background: #f15e5e;
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+	background: #ee3535;
+}
+.trigger-btn {
+	display: inline-block;
+}

@@ -10,7 +10,11 @@ body {
 
 .navbar-nav .ml-auto{
 	margin-left: auto !important;
+
 	font-size:1.5rem;
+
+	height: 60px;
+
 }
 
 .navbar-brand .mr-auto{
@@ -359,7 +363,11 @@ body {
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
+
 		margin-top: 80px;
+
+
+
 	}
     .signup-form h2 {
 		color: #333;
@@ -415,6 +423,18 @@ body {
 	}
 
 
+#footer{
+  background-color: #212121;
+  height: 90px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
+
 
 <!---heading---->
   
@@ -454,7 +474,6 @@ body {
     }
   }
  
-
 
   <!----contact_card----->
   
@@ -573,5 +592,3 @@ height:100%;
 }
  
 
- 
- 
