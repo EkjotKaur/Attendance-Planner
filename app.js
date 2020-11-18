@@ -52,7 +52,7 @@ const classSchema = {
   year: String,
   subject: String,
   userId: String,
-  slotId: String
+  slotId: String,
 };
 
 const slotSchema = {
@@ -89,6 +89,7 @@ const Class = mongoose.model("Class", classSchema);
 const Slot = mongoose.model("Slot", slotSchema);
 const Student = mongoose.model("Student", studentSchema);
 const Attendance = mongoose.model("Attendance", attendanceSchema);
+
 
 passport.use(User.createStrategy());
 
@@ -226,6 +227,8 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
         });
       }
     });         
+
+      
   } else {
     res.redirect("/login");
   }
@@ -301,6 +304,7 @@ app.post("/login", (req, res) => {
       });
     }
   });
+
 });
 
 app.post("/newclass", (req, res) => {
@@ -319,6 +323,52 @@ app.post("/newclass", (req, res) => {
             userId: req.user.id,
             slotId: foundShift.id,
             canOpen: true
+          });
+
+          batch.save();
+          res.redirect("home");
+        }
+      }
+    );
+  } else {
+    Slot.findOne(
+      { branch: req.body.branch, year: req.body.year },
+      (err, foundShift) => {
+        if (err) {
+          console.log(err);
+        } else {
+          const batch = new Class({
+            branch: req.body.branch,
+            Shift: "",
+            year: req.body.year,
+            subject: req.body.subject,
+            userId: req.user.id,
+            slotId: foundShift.id,
+          });
+
+          batch.save();
+          res.redirect("home");
+        }
+      }
+    );
+  }
+});
+
+app.post("/newclass", (req, res) => {
+  if (req.body.year == "2019") {
+    Slot.findOne(
+      { branch: req.body.branch, Shift: req.body.Shift, year: req.body.year },
+      (err, foundShift) => {
+        if (err) {
+          console.log(err);
+        } else {
+          const batch = new Class({
+            branch: req.body.branch,
+            Shift: req.body.Shift,
+            year: req.body.year,
+            subject: req.body.subject,
+            userId: req.user.id,
+            slotId: foundShift.id,
           });
 
           batch.save();
@@ -378,8 +428,10 @@ app.post("/:presentClassId/:presentBatchId/deleteClass", (req, res) => {
 });
 
 app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
-  Slot.findById({ _id: req.params.presentBatchId }, (err, foundSlot) => {
-    if (err) {
+
+  Slot.findById({_id: req.params.presentBatchId}, (err, foundSlot) => {
+    if(err){
+
       console.log(err);
     } else {
       newStudent = new Student({
@@ -388,6 +440,7 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
         branch: foundSlot.branch,
         Shift: foundSlot.Shift,
         year: foundSlot.year,
+
         slotId: foundSlot.id,
       });
       newStudent.save();
@@ -398,9 +451,15 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
           req.params.presentBatchId +
           "/attendance"
       );
-    }
+
+        slotId: foundSlot.id
+      }
+      newStudent.save();
+      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+
   });
 });
+
 
 app.post(
   "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
@@ -545,6 +604,17 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
       req.params.presentBatchId +
       "/attendance"
   );
+});
+
+app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (req, res) => {
+  Student.findOneAndDelete({_id: req.params.presentStudentId}, (err, deletedStudent) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+    }
+  });
+
 });
 
 app.listen(8080, function () {
