@@ -29,88 +29,55 @@
 
   
   <div><h3>Don't Forget To Save The Attendance.</h3></div>
-  <div><button type="submit">Save Attendance</button></div>
-
-  <div class="row">
-    <div class="col-3">
-      <% studentList.forEach(std => { %>
-        <div class="mb-5">
-          <span><%= sno+1 %>  </span>
-          <% sno+=1 %> 
-          <span><%= std.enrollNo %> </span>
-          <span><%= std.name %> </span>
-        </div>
-      <% }) %>
-    </div>
-    <div class="col-8">
-      <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
-      <% studentList.forEach(std => { %>
-        <div class="mb-3 p-1">
-          <div>
-            <span><%= dd %> </span>
-            <select name="dd" onchange=attendanceChangeHandler(event)>
-              <option value=0>P/A</option>
-              <option value=0>NW</option>
-              <option value=1>P</option>
-              <option value=2>A</option>
-            </select>
+  
+  <div>
+  <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
+    <button type="submit">Save Attendance</button>
+    <% studentList.forEach(std => { %>
+      <div class="row justify-content-around">
+        <div class="col-7">
+          <div class="mb-5">
+            <span><%= sno+1 %>  </span>
+            <% sno+=1 %> 
+            <span><%= std.enrollNo %> </span>
+            <span><%= std.name %> </span>
           </div>
-          <br>
         </div>
-      <% }) %>
-      <div><button type="submit">Save Attendance</button></div>
-      </form>
-    </div>
-
-  <% }) %>
-
-  <div class="row">
-    <div class="col-3">
-      <% studentList.forEach(std => { %>
-        <div class="mb-5">
-          <span><%= sno+1 %>  </span>
-          <% sno+=1 %> 
-          <span><%= std.enrollNo %> </span>
-          <span><%= std.name %> </span>
-        </div>
-      <% }) %>
-    </div>
-    <div class="col-8">
-      <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
-      <% studentList.forEach(std => { %>
-        <div class="mb-3 p-1">
-          <div>
-            <span><%= dd %> </span>
-            <select name="dd" onchange=attendanceChangeHandler(event)>
-              <option value=0>P/A</option>
-              <option value=0>NW</option>
-              <option value=1>P</option>
-              <option value=2>A</option>
-            </select>
+        <div class="col-2">
+          <div class="class">
+            <div>
+              <span><%= dd %> </span>
+              <select name="dd" onchange=attendanceChangeHandler(event)>
+                <option value=0>P/A</option>
+                <option value=0>NW</option>
+                <option value=1>P</option>
+                <option value=2>A</option>
+              </select>
+            </div>
           </div>
-          <br>
         </div>
-      <% }) %>
-      <div><button type="submit">Save Attendance</button></div>
-      </form>
-    </div>
-
-    <div class="col-1">
-      <% studentList.forEach(std => { %>
-        <div class="mb-3">
-          <span>
-            <form action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
-              <button type="submit">DELETE</button>
+        <!-- <div class="col-3">
+          <div> -->
+            <form class="col-2" action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
+              <button type="submit">DELETE!</button>
             </form>
-          </span>
-        </div>
-      <% }) %>
-    </div>
+          <!-- </div>
+        </div> -->
+      </div>
+    <% }) %>
+   
+    
+  </form>
+  </div>
+    
+     
+    
     
   </div>  
   <div><h3>Don't Forget To Save The Attendance.</h3></div>
   <div><button type="submit">Save Attendance</button></div>
   </form>
+  <button><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View Record</a></button>
 
     <script>
       attendanceChangeHandler = event => {
