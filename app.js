@@ -253,6 +253,7 @@ app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
   if (req.isAuthenticated()){
     Attendance.find({classId: req.params.presentClassId}, (err, att) => {
       Student.find({slotId: req.params.presentBatchId},(err, std) => {
+        console.log(std[0]);
         Class.findOne({_id: req.params.presentClassId}, (err, cl) => {
           res.render("record", {record: att, std: std, Class: cl});
         });
@@ -611,10 +612,15 @@ app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (re
     if(err){
       console.log(err);
     } else {
-      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+      Attendance.findOneAndDelete({stdId: req.params.presentStudentId}, (err, deletedAtt) => {
+        if(err){
+          console.log(err);
+        } else {
+          res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
+        } 
+      });
     }
   });
-
 });
 
 app.listen(8080, function () {
