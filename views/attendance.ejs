@@ -20,8 +20,8 @@
   <div><h3>Don't Forget To Save The Attendance.</h3></div>
   <div><button type="submit">Save Attendance</button></div>
 
-  <div class="row">
-    <div class="col-3">
+  <div class="row justify-content-around">
+    <div class="col-7">
       <% studentList.forEach(std => { %>
         <div class="mb-5">
           <span><%= sno+1 %>  </span>
@@ -31,7 +31,7 @@
         </div>
       <% }) %>
     </div>
-    <div class="col-8">
+    <div class="col-2">
       <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
       <% studentList.forEach(std => { %>
         <div class="mb-3 p-1">
@@ -50,7 +50,7 @@
       <div><button type="submit">Save Attendance</button></div>
       </form>
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <% studentList.forEach(std => { %>
         <div class="mb-3">
           <span>
@@ -66,6 +66,7 @@
   <div><h3>Don't Forget To Save The Attendance.</h3></div>
   <div><button type="submit">Save Attendance</button></div>
   </form>
+  <button><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View Record</a></button>
 
     <script>
       attendanceChangeHandler = event => {
