@@ -226,6 +226,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
             }
           );
         }
+
         res.render("attendance", {
           presentClassId: req.params.presentClassId,
           presentBatchId: req.params.presentBatchId,
@@ -237,6 +238,8 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
           Year: year,
           TodayDate: TodayDate,
           dd: TodayDate.getDate(),
+          name: req.user.name,
+          username: req.user.username
         });
       } 
     }); 
