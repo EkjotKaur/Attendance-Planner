@@ -13,26 +13,26 @@
       
    
 
-  <div class="bg-dark text-white mx-2 px-2" style=" width: 100%; top: 0; ">
+  <div class="bg-dark text-white mx-2 px-2 py-4" style=" width: 100%; top: 0; ">
     
      <% if (Class.branch=="CSE") { %>
       <div style="font-size:xx-large; font-weight: bold;">
-        Branch: Computer Science
+        Branch: Computer Science <%= Class.Shift %>, <%= Class.year %>  
       </div>
     <% } %>
     <% if (Class.branch=="IT") { %>
       <div style="font-size:xx-large; font-weight: bold;">
-        Branch: Information Technology
+        Branch: Information Technology <%= Class.Shift %>, <%= Class.year %>  
       </div>
     <% } %>
     <% if (Class.branch=="ECE") { %>
       <div style="font-size:xx-large; font-weight: bold;">
-        Branch: Electronics And Communication
+        Branch: Electronics And Communication <%= Class.Shift %>, <%= Class.year %>  
       </div>
     <% } %>
     <% if (Class.branch=="EEE") { %>
       <div style="font-size:xx-large; font-weight: bold;">
-        Branch: Electrical And Electronics
+        Branch: Electrical And Electronics <%= Class.Shift %>, <%= Class.year %>  
       </div>
     <% } %>
  
@@ -104,8 +104,8 @@
           <tr>
             <% i=i+1 %> 
             <th scope="row"><%= i %> </th>
-            <td><%= student.enrollNo %></td>
-            <td><%= student.name %></td>
+            <td> <%= std[j].enrollNo %> </td>
+            <td> <%= std[j].name %> </td>
             <% att.Days.forEach(day => { %>
               <% if (day>0) { %>
                 <td>Present</td>

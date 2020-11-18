@@ -7,11 +7,11 @@
     <!-- The sidebar -->
     <div class="sidebar">
       <a class="active text-center width font-weight-bold" href="#">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
-      <a class="active text-center font-italic" id="name" href="#">Bhavya Sehgal</a>
-      <a class="active text-center font-italic"id="mail" href="#">bhavyasehgal05@gmail.com</a>
-      <a class="width" href="#home">Home</a>
-      <a class="width" href="#about">About</a>
-      <a class="width" href="#contact">Contact</a>
+      <a class="active text-center font-italic" id="name" href="#"><%= name %> </a>
+      <a class="active text-center font-italic"id="mail" href="#"><%= username %> </a>
+      <a class="width" href="/">Home</a>
+      <a class="width" href="/#About">About</a>
+      <a class="width" href="/#Contact">Contact</a>
       <a class="width" href="/logout">Logout</a>
     </div>
     
@@ -133,72 +133,21 @@
                                   <div class="col-6">
                                     <!-- Button trigger modal -->
                                     <button class="card-link btn btn-outline-secondary color-btn btn-lg" data-toggle="modal" data-target="#exampleModal1">
-                                    <a href="#">UPDATE</a>
+                                    <a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a>
                                     </button>
                                     
-                                    <!--UPDATE CLASS Modal -->
-                                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel1">Add new class name</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <div class="modal-body popup">
-                                          <div class="form-edit">
-
-                                            <form action="/<%= batch.id %>/<%= batch.slotId %>/updateClass" method="POST">
-                                              <input type="text" placeholder="Subject" name="subject"class="form-control">
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-outline-info color-btn">Save changes</button>
-                                              </div>
-                                            </form>
-  
-                                          </div>
-                                          
-                                        </div>
-                                        
-                                      </div>
-                                    </div>
-                                  </div>
+                                    
                                   
                                   </div>
                                   <div class="col-6">
                                     
                                     <button class="card-link btn btn-secondary color-btn btn-lg ">
-                                      <a href="#myModal" class="text-light" data-toggle="modal">DELETE</a>
+                                      <a href="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" class="text-light" >DELETE</a>
                                     </button>
                                   
-                                    <!--Delete Modal HTML -->
-                                    <div id="myModal" class="modal fade">
-                                      <div class="modal-dialog modal-confirm">
-                                        <div class="modal-content">
-                                          <div class="modal-header flex-column">
-                                            <div class="icon-box">
-                                              <i class="material-icons">&#xE5CD;</i>
-                                            </div>						
-                                            <h4 class="modal-title w-100">Are you sure?</h4>	
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                          </div>
-                                          <div class="modal-body">
-                                            <p>Do you really want to delete these records? This process cannot be undone.</p>
-                                          </div>
-                                          <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <form action="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" method="POST">
-                                              <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form>
-                                            </div>
-                                        </div>
-                                      </div>
-                                    </div>  
-
+                                     
                                 
                                   </div>
-
                                 </div>
                                 
                               </a>
@@ -206,7 +155,6 @@
                             </div>
                         </div>
                        
-
                         
                       <% }); %> 
                       
@@ -217,15 +165,11 @@
               
               </div>
             
-
           </div>
           
        
-
-
   <script src="home.ejs"></script>      
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
 </body>
 </html>
