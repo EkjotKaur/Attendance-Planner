@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presence</title>
-</head>
-<body>
+<%- include('./partials/top2.ejs') %>
 
-  <form action="/<%= classId %>/<%= batchId %>/<%= stdId %>/deleteStudent" method="POST">
-    <button type="submit" class="btn btn-dark text-light" data-toggle="tooltip" data-placement="bottom" title="Delete Student">Button</button>
+  <div class="top-nav width">
+    <!-- <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3> -->
+    <img src="/images/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
+  </div>
 
-  </form>  
-  
+  <div class="row">
+
+    <div class="mx-auto update-box p-3 col-10 col-sm-9 col-md-8 col-lg-6">
+    
+      <h1 class="pb-3 text-secondary">Do You Really Want to Delete ?</h1>
+      <hr>
+      <form action="/<%= classId %>/<%= batchId %>/<%= stdId %>/deleteStudent" method="POST">
+        
+        <button type="submit" class="btn btn-outline-info color-btn btn-lg m-4 justify-content-end"id="main-btn-edit">DELETE</button>
+      </form>
+      
+    </div> 
+  </div>
+        <!-- Footer -->
+<div class="foot bg-dark text-light p-3  text-center" style="bottom: 0;margin-top:60px;">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
+
 </body>
 </html>
