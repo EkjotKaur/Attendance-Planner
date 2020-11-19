@@ -44,23 +44,24 @@ a, a:hover, a:link, a:active{
 }
 @media only screen and (max-width:995px){
   .margin{
-    margin-bottom: 58.2px;
+    margin-bottom: 58px;
   }
 }
 @media only screen and (max-width:767px){
   .margin{
-    margin-bottom: 82.5px;
+    margin-bottom: 82.1px;
   }
 }
 @media only screen and (max-width:575px){
   .margin{
-    margin-bottom: 122px;
+    margin-top: 87px;
+    margin-bottom: 120px;
   }
 }
 @media only screen and (max-width:408px){
   .margin{
-    margin-top: 100px;
-    margin-bottom: 120px;
+    margin-top: 105px;
+    margin-bottom: 126px;
   }
 }
 @media only screen and (max-width:350px){
@@ -71,8 +72,8 @@ a, a:hover, a:link, a:active{
 }
 @media only screen and (max-width:343px){
   .margin{
-    margin-top: 110px;
-    margin-bottom: 122.5px;
+    margin-top: 106px;
+    margin-bottom: 121px;
   }
 }
   

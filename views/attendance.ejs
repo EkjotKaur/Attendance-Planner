@@ -7,8 +7,12 @@
 </div>
 
   <div class="container top-setting justify-content-center" >
- 
-  <button class="btn btn-outline-dark mx-0 my-2 btn-create"><a href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent"><h3><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add Student</h3></a></button>
+    
+    <div class="row justify-content-between">
+      <button class="btn btn-outline-dark mx-0 my-2 btn-create"><a href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent"><h4><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add Student</h4></a></button>
+      <button class="btn btn-outline-dark mx-0 my-2 btn-create"><a href="/home"><h4><i class="fas fa-backward pr-1"></i> Go Back</h4></a></button>
+    </div>
+  
 
   <div class="row justify-content-between my-3 text-light px-1 bg-dark boxes">
     <div class="col-lg-4 bg-dark py-3 ">
@@ -36,13 +40,13 @@
         <h5>Date: <%= TodayDate %> </h5>
       </div>
     </div>
-    <div class="col-lg-4 bg-dark py-3 boxes">
+    <div class="col-lg-4 bg-dark py-3">
       <div><%= name %></div>
       <div><%= username %></div>
       <div>NW - not a working day</div>
     </div>
   </div>
-  <div class="alert alert-danger mx-0" style="border-radius: 0;" role="alert">
+  <div class="alert alert-danger mx-0 row" style="border-radius: 0;" role="alert">
     <div>Dont't Forget To Submit The Form. Submits and updates the record ONCE a day</div>
     <div></div>
   </div>
@@ -75,17 +79,14 @@
             </div>
           </div>
         <% }) %>
-        <button type="submit" class="btn btn-outline-info color-btn">Save Attendance</button>
+        <button type="submit" class="btn btn-outline-info color-btn mr-3 my-4 my-md-0">Save Attendance</button>
         <button class="btn btn-dark text-light"><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View Record</a></button>
       </form>
     </div>
-    <div class="col-4 col-sm-3 col-lg-2">
+    <div class="col-3 col-sm-2">
         <% studentList.forEach(std => { %>
           <div class="margin">
-            <form action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
-              <button type="submit" class="btn btn-dark text-light">DELETE</button>
-
-            </form>  
+              <button class="btn btn-dark text-light" data-toggle="tooltip" data-placement="bottom" title="Delete Student"><a href="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent"><i class="fas fa-trash-alt"></i></a></button>
           </div>
         <% }) %>
     </div>
@@ -99,5 +100,12 @@
     <div></div>
   </div>
     
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
