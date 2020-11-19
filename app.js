@@ -298,6 +298,13 @@ app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
   }
 });
 
+app.get("/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent", (req, res) =>{
+  if (req.isAuthenticated()){
+    res.render("deleteStudent", {classId: req.params.presentClassId, batchId: req.params.presentBatchId, stdId: req.params.presentStudentId});
+  } else {
+    res.redirect("/login");
+  }
+});
 
 app.get("/logout", (req, res) => {
   req.logout();
@@ -503,27 +510,6 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
   });
 });
 
-app.post(
-  "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
-  (req, res) => {
-    Student.findOneAndDelete(
-      { _id: req.params.presentStudentId },
-      (err, deletedStudent) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.redirect(
-            "/" +
-              req.params.presentClassId +
-              "/" +
-              req.params.presentBatchId +
-              "/attendance"
-          );
-        }
-      }
-    );
-  }
-);
 
 app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
   Student.find({ slotId: req.params.presentBatchId }, (err, foundStudent) => {
