@@ -1,11 +1,29 @@
-<%- include('./partials/top.ejs') %>
+<%- include('./partials/top2.ejs') %>
 
-  <h1>NEW CLASS</h1>
+  <div class="top-nav width">
+    <!-- <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3> -->
+    <img src="/images/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
+  </div>
 
-  <form action="/<%= presentClassId %>/<%= presentBatchId %>/updateClass" method="POST">
-    <input type="text" placeholder="subject" name="subject"> 
-    <button type="submit">Submit</button>
-  </form>
+  <div class="row">
 
+    <div class="mx-auto update-box p-3 col-10 col-sm-9 col-md-8 col-lg-6">
+    
+      <h1 class="pb-3 text-secondary">ADD UPDATED NAME</h1>
+      <hr>
+    
+      <form action="/<%= presentClassId %>/<%= presentBatchId %>/updateClass" method="POST">
+        <div class="row justify-content-center">
+          <div class="col-2">
+            <label for="" class="form-label w-20 m-1 mt-2 ">Name: </label>
+          </div>
+          <div class="col-8">
+            <input type="text" placeholder="subject" name="subject"class="form-control"> 
+          </div>
+        <button type="submit" class="btn btn-outline-info color-btn btn-lg m-4 justify-content-end"id="main-btn-edit">Save Changes</button>
+  
+        </div>
+      </form>
+    </div>
 </body>
 </html>
