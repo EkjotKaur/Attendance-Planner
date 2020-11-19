@@ -117,7 +117,8 @@ app.get("/home", function (req, res) {
         res.render("home", {
           classList: classes,
           name: req.user.name,
-          username: req.user.username
+          username: req.user.username,
+          len: classes.length
         });
       }
     });
@@ -206,6 +207,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   record.save();
                   console.log(record);
                 } else {
+                  console.log(foundRecord);
                   // console.log(foundRecord.totalDays);
                   if(Month!=foundRecord.month){
                       Attendance.findOneAndDelete({_id: foundRecord.id}, (err, delAtt) => {
