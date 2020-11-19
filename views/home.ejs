@@ -1,14 +1,15 @@
 <%- include('./partials/top2.ejs') %>
 
   <div class="top-nav width">
-    <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3>
+    <!-- <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3> -->
+    <img src="/images/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
   </div>
 
     <!-- The sidebar -->
-    <div class="sidebar">
-      <a class="active text-center width font-weight-bold" href="#">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
-      <a class="active text-center font-italic" id="name" href="#"><%= name %> </a>
-      <a class="active text-center font-italic"id="mail" href="#"><%= username %> </a>
+    <div class="sidebar nav-setting">
+      <a class="active width-setting text-center width font-weight-bold" href="#">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
+      <a class="active width-setting text-center font-italic" id="name" href="#"><%= name %> </a>
+      <a class="active width-setting text-center font-italic"id="mail" href="#"><%= username %> </a>
       <a class="width" href="/">Home</a>
       <a class="width" href="/#About">About</a>
       <a class="width" href="/#Contact">Contact</a>
@@ -16,7 +17,7 @@
     </div>
     
     <!-- Page content -->
-          <div class="content box container display-3">
+          <div class="content box display-3">
               <div>
                 <div class="hide">
                 <h1>No Batch Exists</h1>
@@ -130,7 +131,7 @@
                                 <h6 class="card-subtitle mb-2 text-muted"><%= batch.subject %></h6>
                                 <div class="row justify-content-center">
                                   
-                                  <div class="col-6">
+                                  <div class="col-12 col-sm-6 my-0 my-sm-3">
                                     <!-- Button trigger modal -->
                                     <button class="card-link btn btn-outline-secondary color-btn btn-lg" data-toggle="modal" data-target="#exampleModal1">
                                     <a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a>
@@ -139,7 +140,7 @@
                                     
                                   
                                   </div>
-                                  <div class="col-6">
+                                  <div class="col-12 col-sm-6 my-0 my-sm-3">
                                     
                                     <button class="card-link btn btn-secondary color-btn btn-lg ">
                                       <a href="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" class="text-light" >DELETE</a>
@@ -166,7 +167,7 @@
               </div>
             
           </div>
-          
+  
        
   <script src="home.ejs"></script>      
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
