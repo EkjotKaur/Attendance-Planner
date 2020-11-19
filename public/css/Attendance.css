@@ -83,3 +83,11 @@ a, a:hover, a:link, a:active{
 .btn-create{
   box-shadow: 5px 5px 10px #888;
 }
+
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
