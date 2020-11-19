@@ -1,0 +1,85 @@
+body{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+*{
+  box-sizing: border-box;
+}
+.margin{
+  margin-bottom: 34px;
+}
+a, a:hover, a:link, a:active{
+  color: inherit;
+  text-decoration: none;
+}
+.top-nav{
+  background: #16a596 ;
+  height: 60px;
+  color:white;
+  width:100% !important;
+  box-shadow: 10px;
+  position: fixed;
+  top: 0;
+  z-index:500;
+  box-shadow: 2px 5px 5px #888;
+}
+.boxes{
+  box-shadow: 2px 5px 5px #888;
+}
+#head{
+  padding:10px;
+  width:100% !important;
+}
+@media only screen and (max-width:425px){
+  .top-nav{
+    height: 80px;
+    width:100%;
+    position: absolute;
+  }
+}
+
+.top-setting{
+  margin-top: 100px;
+}
+@media only screen and (max-width:995px){
+  .margin{
+    margin-bottom: 58px;
+  }
+}
+@media only screen and (max-width:767px){
+  .margin{
+    margin-bottom: 82.1px;
+  }
+}
+@media only screen and (max-width:575px){
+  .margin{
+    margin-top: 87px;
+    margin-bottom: 120px;
+  }
+}
+@media only screen and (max-width:408px){
+  .margin{
+    margin-top: 105px;
+    margin-bottom: 126px;
+  }
+}
+@media only screen and (max-width:350px){
+  .margin{
+    margin-top: 100px;
+    margin-bottom: 121.5px;
+  }
+}
+@media only screen and (max-width:343px){
+  .margin{
+    margin-top: 106px;
+    margin-bottom: 121px;
+  }
+}
+  
+.bg-layout{
+  box-shadow: 5px 5px 15px #888;
+}
+.btn-create{
+  box-shadow: 5px 5px 10px #888;
+}

@@ -88,32 +88,38 @@
           <th scope="col">#</th>
           <th scope="col">Enrollment No.</th>
           <th scope="col">Name</th>
-          <% record[0].Days.forEach(day => { %>
-            <% let dd = Math.abs(day) %> 
-            <th scope="col"><%= dd %></th>
-          <% }) %> 
+          <% for( let i = 1; i < 31; i++ ) { %>
+            <th scope="col"><%= i %></th>
+          <% } %>
           <th scope="col">Present</th>
           <th scope="col">Total Days</th>
         </tr>
       </thead>
       <% let i=0; %> 
     <% for(let j=0; j<record.length; j++){ %>
-        <% const att=record[j] %> 
+             
+       <% const att=record[j] %> 
         <% const student=std[j] %> 
         <tbody class="bg-light">
           <tr>
             <% i=i+1 %> 
             <th scope="row"><%= i %> </th>
-            <td> <%= std[j].enrollNo %> </td>
-            <td> <%= std[j].name %> </td>
-            <% att.Days.forEach(day => { %>
-              <% if (day>0) { %>
-                <td>Present</td>
+            <td> <%= student.enrollNo %> </td>
+            <td> <%= student.name %> </td>
+            <% let k=0 %>
+            <% for( let r = 1; r <= 31; r++ ) { %>
+              <% if (Math.abs(att.Days[k]) == r) { %>
+                <% k=k+1 %>
+                <% if (att.Days[k]>0) { %>
+                  <td>Present</td>
+                <% } else { %>
+                  <td>Absent</td>
+                <% } %>
               <% } else { %>
-                <td>Absent</td>
+                <td>-</td>
               <% } %>
-              
-            <% }) %> 
+
+            <% } %>
             <td><%= att.present %></td>
             <td><%= att.totalDays %> </td>
           </tr>

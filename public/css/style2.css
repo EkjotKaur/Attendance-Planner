@@ -8,6 +8,10 @@
     top: 0;
     z-index:500;
 }
+div.content {
+  left: 200px;
+  padding: 1px 16px;
+}
 body{
     background:white;
     margin:0;
