@@ -159,6 +159,12 @@ a,a:active,a:hover,a:link{
       box-shadow: 7px 5px 15px #999;
       top: 80px
     }
+    .hidden-1{
+      display: block !important;
+    }
+    .hidden-2{
+      display: none;
+    }
     .top-nav{
       box-shadow: none;
     }
@@ -193,11 +199,15 @@ a,a:active,a:hover,a:link{
     width:50%;
  }
  .update-box{
-   margin-top: 200px;
+   margin-top: 180px;
+   margin-bottom: 91px;
    box-shadow: 5px 5px 15px #888;
  }
  .brand-img{
    margin-top: 10px;
    height: 65px;
    /* width: 80px; */
+ }
+ .hidden-1{
+   display: none;
  }
