@@ -5,7 +5,7 @@
     <img src="/images/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
   </div>
 
-  <div class="row">
+  <div class="row mb-5">
 
     <div class="mx-auto update-box p-3 col-10 col-sm-9 col-md-8 col-lg-6">
     
@@ -20,7 +20,15 @@
           <label for="exampleInputNumber1">Enrollment-Number</label>
           <input type="text" placeholder="Enrollment number" name="enrollno"class="form-control" id="exampleInputNumber1">
         </div> 
-        <button type="submit" class="btn btn-outline-info color-btn btn-lg m-4 justify-content-end"id="main-btn-edit">Save Changes</button>
+        <div class="row justify-content-end px-3">
+          <div class=" btn-lg my-3 col-6 col-md-4 col-lg-3  text-center">
+            <button class="btn m-auto btn-info color-btn btn-lg"id="main-btn-edit"><a href="/<%= presentClassId %>/<%= presentBatchId %>/attendance">CANCEL</a></button>
+          </div>
+          <div class=" btn-lg my-3 col-6 col-md-4 col-lg-3  text-center">
+            <button type="submit" class="btn btn-outline-info color-btn btn-lg "id="main-btn-edit">ADD</button>
+          </div>
+        </div>
+        
       </form>
       
     </div> 

@@ -21,7 +21,7 @@ body,html{
 }
 a,a:active,a:hover,a:link{
   text-decoration: none;
-  color: black;
+  color:inherit;
 }
 *{
   box-sizing: border-box;
