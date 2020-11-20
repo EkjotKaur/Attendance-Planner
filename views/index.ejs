@@ -5,63 +5,177 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  
+ <!-- NAVBAR -->
 </head>
-<body data-spy="scroll " data-target=".navbar" data-offset="50">
+<body style="position:relative;"  data-spy="scroll " data-target=".navbar" data-offset="50">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.4em">ATTENDANCE  PLANNER</a>
-    </div>
-    <div>
-      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-          <ul class="nav navbar-nav text-center ">
-          <li><a href="#About"style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em;"><span class="glyphicon glyphicon-star-empty"></span> ABOUT</a></li></button>
-          <li><a href="/signup" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
-          <li><a href="/login" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
-          <li><a href="#Contact" style="color:#3b6978;font-weight:bold;font-family:Times New Roman, Times, serif;font-size: 1.35em"><span class="glyphicon glyphicon-earphone"></span> CONTACT</a></li>
-         </ul>
-      </div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top nav-height">
+
+  <div class="container">
+  <a class="navbar-brand mr-auto " href="#">
+    <img class="img-responsive" src="/images/presence2.png" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+
+      <a class="nav-link px-3" href="#About" style="font-size: 1.3rem"><i class="fa fa-star-o fa-xs " aria-hidden="true" style="color: white; "></i>About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link px-3" href="/login" style="font-size: 1.3rem"><i class="fa fa-sign-in fa-xs " aria-hidden="true" style="color: white"></i>
+      Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link px-3" href="/signup" style="font-size: 1.3rem"><i class="fa fa-user fa-xs " aria-hidden="true" style="color: white"></i> Sign Up</a>
+    </li>  
+    <li class="nav-item">
+      <a class="nav-link px-3" href="#Contact" style="font-size: 1.3rem"><i class="fa fa-phone fa-xs " aria-hidden="true" style="color: white"></i>  Contact</a>
+    </li> 
+    </ul>
+
+  </div> 
+  </div> 
+</nav>
+<br>
+
+
+ <!-- HEADING ANIMATION-->
+
+<div class="jumbotron jumbotron bg-cover">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 style="font-family: lobster;text-align: justify;">Presence</h1>
+      <p class="lead" style=" font-weight:medium;color: #333456;text-align: justify;">Attendance <span>Recorder</span></p>
+      <br>
+      <br>
+      <br>
+
+
+      <a href="/login" class="btn btn-info mybtn btn-lg" role="button"><h3 class="px-lg-2 py-lg-1">Login</h3></a>
+        <a href="/signup" class="btn btn-info mybtn btn-lg" role="button"><h3 class="px-lg-2 py-lg-1">Sign Up</h3></a>
     </div>
   </div>
-</nav>    
+  <br>
+  <hr>
 
 
-<h1 class="block-effect" style="--td: 1.2s">
-  <div class="block-reveal" style="--bc: #4040bf; --d: .1s">Attendance</div>
-  <div class="block-reveal" style="--bc: #bf4060; --d: .5s">Planner</div>
-</h1>
-<br><br>
 
-<div class="info">
-  <button type="button" class="btn btn-info" ><a href="/login"><span class="glyphicon glyphicon-log-in"></span>  LOGIN</a></button>
-  <button type="button" class="btn btn-info"><a href="/signup"><span class="glyphicon glyphicon-user"></span>  SIGNUP</a></button>
+           
+        
+   
+
+
+ <!-- ABOUT SECTION-->
+ <section>
+ 
+<div id="About" class="jumbotron jumbotron bg-cover2">
+  <div class="container">
+  <div class="overlay"></div>
+<h2 style="color:black;font-family: Courier New;letter-spacing: 0.05em;font-weight: bold;text-align: center;margin-top: 50px;font-size: 3rem">ABOUT</h2>
+<h6 style="color:black;font-family: Roboto;letter-spacing: 0.05em;text-align: justify;" class="font-size-about">This attendance management system is simple and user friendly. It is well equipped to handle attendance related task and  it has great features which make strenuous tasks hassle-free, like calculating attendance of every student.
+Blending modern and traditional methods is the highlight of this website is to encourage customers to go paperless.
+Especially made with an Indian teacher perspective in mind ,it is best suited for Indian teachers.
+</h6>
 </div>
-<br>
-<br>
-<div id="About" class="container-fluid text-banner">
-<h3 style="color:black;font-family: Courier New;text-align: left;font-size: 30px;letter-spacing: 0.05em;font-weight: bold;text-align: center;">ABOUT</h3>
-<p> nsndkadksdhhjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-  hslikkcnnnnnnnnnnnnnnnnnnsllllllllllllllllnzzzzzzzz
-</p>
 </div>
+</section>
 <br>
 
-<div id="Contact" class="container-fluid text-banner">
-  <h3 style="color:black;font-family: Courier New;text-align: left;font-size: 30px;letter-spacing: 0.05em;font-weight: bold;text-align: center;">CONTACT</h3>
-  <div class="card col-xs-4">
+ <!-- FEATURE SECTION-->
+ <section>
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="main-timeline" data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="300">
+            <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
+              <div class="timeline-content px-2 py-1 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center" >STEP 1: Sign Up</h3>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="/images/login.png" alt="" 
+                      class=" mt-2 w-100 mx-auto">
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 px-4">
+                    <h5>Create your account by Signing-up.
+                    Enter the required details and then you're good.
+                  </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
+              <div class="timeline-content px-2 py-1">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 2: Create New Batch/Class </h3>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="/images/batch.png" alt=""
+                      class=" mt-2 w-100 mx-auto">
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 " >
+                    <h5>Here, you can create the batch/class for your choice. 
+                    and it offer some features by which you can add new students to the list and can remove them too.
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
+              <div class="timeline-content px-2 py-1 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 3: Mark the Attendance </h3>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="/images/attendance_list.png" alt="" 
+                      class=" mt-2 w-100 mx-auto">
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
+                    <h5>Mark Absent or Present and save it for later.
+                    It allows to know the no. of days a students was present/absent. </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
+              <div class="timeline-content px-2 py-2 ">
+                <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 4: Download Attendance</h3>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="/images/download.png" alt="" 
+                      class=" mt-2 w-100 mx-auto">
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
+                    <h5>You can easily download attendance and sent it to whereever you want to.  </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <br>
+  <br>
+  <hr>
+  <!--FEATURE SECTION ENDS-->
+
+
+ <!-- CONTACT SECTION-->
+
+ <div class="container my-3 py-5">
+<div id="Contact" class="container text-banner">
+  <h3 style="color:black;font-family: Courier New;text-align: left;font-size:3vw;letter-spacing: 0.05em;font-weight: bold;text-align: center;margin-top: 50px">CONTACT</h3><br><br>
+  <div class="row d-flex justify-content-around ">
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
     <div class="image">
-      <img src="https://pbs.twimg.com/profile_images/1325504533024309249/atRtEvAR_400x400.jpg"/>
+      <img src="https://pbs.twimg.com/profile_images/1325504533024309249/atRtEvAR_400x400.jpg">
     </div>
     <div class="details">
       <div class="center">
-        <h1>EKJOT KAUR</h1>
+        <h2 style="color: red;">EKJOT KAUR</h2>
+
         <p>FULL STACK DEVELOPER</p>
         <ul>
          <li><a href="https://twitter.com/EkjotKaurK13"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -71,15 +185,21 @@
       </div>
     </div>
   </div>
+
   
-  <div class="card col-xs-4">
+  
+
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
+
     <div class="image">
-      <img src="https://pbs.twimg.com/profile_images/1284764027088891904/P7NWsF5i_400x400.jpg">
+      <img src="https://pbs.twimg.com/profile_images/1284764027088891904/P7NWsF5i_400x400.jpg" >
     </div>
     <div class="details">
       <div class="center">
-        <h1>RISHIKA</h1>
-        <P>FRONTEND DEVELOPER</P>
+
+        <h2 style="color: red;">RISHIKA</h2>
+
+        <p>FRONTEND DEVELOPER</p>
         
         <ul>
           <li><a href=" https://twitter.com/R_kanojiaaa?s=08"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -87,36 +207,46 @@
           <li><a href="https://www.linkedin.com/in/rishika-kanojia-a613a8183"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
         </ul>
       </div>
+      </div>
     </div>
-  </div>
   
-  <div class="card col-xs-4">
-    <div class="image">
+  
+
+  <div class="card col-md-8 col-sm-10 col-11 col-lg-4 mt-2 mb-2">
+    <div class="myimg image">
       <img src="https://media-exp1.licdn.com/dms/image/C5603AQFH4xk-EvSiPw/profile-displayphoto-shrink_200_200/0?e=1611187200&v=beta&t=cVN7R1FpJBOk6EivLOOiAZmj8lRohhQdc9ji7Z5Nptg">
+
     </div>
     <div class="details">
       <div class="center">
-        <h2 style="color: red;font-size: 2vw">BHAVYA SEHGAL</h2>
-        <P>FRONTEND DEVELOPER</P>
+        <h2 style="color: red;">BHAVYA SEHGAL</h2>
+        <p>FRONTEND DEVELOPER</p>
         
         <ul>
           <li><a href="https://github.com/Bhavya-Sehgal"><i class="fa fa-github" aria-hidden="true"></i></a></li>
           <li><a href="https://www.linkedin.com/in/bhavya-sehgal-8914661a2"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
         </ul>
       </div>
+      </div>
     </div>
   </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<hr>
 
 
-<p class="cp-text text-center">
-    © Copyright 2020 RIJOTYA . All rights reserved.
-    <br>Made with love.
+<!-- Footer -->
+<div class="foot bg-dark text-light p-3  text-center" style="bottom: 0;">
+  <h5 class="m-0 pb-2">Made with ❤️ by Coder Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
 
-</p>
 
 
 
-	
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 

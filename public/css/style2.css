@@ -1,0 +1,218 @@
+.top-nav{
+    background: #16a596 ;
+    height: 80px;
+    color:#756868;
+    width:100% !important;
+    box-shadow: 2px 5px 5px #888;
+    position: fixed;
+    top: 0;
+    z-index:500;
+}
+div.content {
+  left: 200px;
+  padding: 1px 16px;
+}
+body,html{
+    background:white;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+a,a:active,a:hover,a:link{
+  text-decoration: none;
+  color:inherit;
+}
+*{
+  box-sizing: border-box;
+}
+
+#name{
+  padding-bottom: 0%;
+  font-weight: 200px;
+  width:100%;
+}
+#mail{
+  padding-bottom: 32px;
+  width:100%;
+}
+.width{
+  width:100%;
+}
+.box{
+    text-align:center;
+    margin-top:100px;
+    margin-left:70px;
+    padding: 10px;
+    color:rgb(165, 159, 159);
+}
+#head{
+  padding:10px;
+  width:100% !important;
+}
+@media only screen and (max-width:425px){
+  .top-nav{
+    height: 80px;
+    width:100%;
+    position: absolute;
+  }
+  .box h1,.update-box h1{
+    font-size: 20px;
+  }
+  .sidebar{
+    top:80px !important;
+  }
+  #main-btn{
+    text-align: end;
+    margin-right: 0;
+    padding-left:2px;
+  }
+  #main-btn-edit{
+    text-align: end;
+  }
+  .edit{
+    font-size:10px;
+  }
+}
+.color-btn:hover{
+    background:#16a596 ;
+}
+.card-edit{
+  text-transform:uppercase;
+  box-shadow: 5px 5px 13px #aaa;
+  background:#f5f5f5;
+}
+.icon{
+  padding:10px;
+}
+.form-edit{
+  font-size: 30px;
+}
+#main-btn{
+  font-size: 40px;
+  padding:6px;
+}
+#main-btn-edit{
+  box-shadow: 4px 4px;
+}
+.popup{
+  border-top: 3px solid #16a596;
+}
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    top:80px;
+    width: 240px;
+    background-color: #2b2727;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    color:white;
+    
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color:white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #595b5d;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color:#595b5d;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+  }
+  @media (min-width: 700px) and (max-width: 759px){
+    div.content{
+      padding-right: 30px;
+    }
+  }
+  @media screen and (max-width: 588px){
+    div.content{
+      padding-right: 35px;
+    }
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      box-shadow: 7px 5px 15px #999;
+      top: 80px
+    }
+    .hidden-1{
+      display: block !important;
+    }
+    .hidden-2{
+      display: none;
+    }
+    .top-nav{
+      box-shadow: none;
+    }
+    .nav-setting{
+      justify-content: flex-end;
+      text-align: center;
+    }
+    .width-setting{
+      display: none!important;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+    
+  }
+  .hide{
+    display:none;
+  }
+ .updatebox{
+   margin-top:20% !important;
+   width:60%;
+   margin-left: 20%;
+ }
+ .updateform{
+    margin-left:25%;
+    width:50%;
+ }
+ .update-box{
+   margin-top: 180px;
+   margin-bottom: 91px;
+   box-shadow: 5px 5px 15px #888;
+ }
+ .brand-img{
+   margin-top: 10px;
+   height: 65px;
+   /* width: 80px; */
+ }
+ .hidden-1{
+   display: none;
+ }
+ .foot{
+   position: fixed;
+   width: 100%;
+ }

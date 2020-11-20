@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/css/tableexport.min.css" integrity="sha512-QNApdXD0OM7mWwz9n+xCNgjfkYe7Usw17xroPYOtsnVQqTQfardTXrrUWyvkcpkmYaeVn3KS0ps0BLbV59KCQg==" crossorigin="anonymous" />
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/img/ixlsx.png">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <title>Presence</title>
+  <style>
+    .button-default{
+      display: none;
+    }
+    .btn.btn-default.xls{
+      background-color: white;
+      padding: 5px 20px;
+      margin: 20px ;
+      font-size: 1.4rem;
+      box-shadow: 4px 5px 10px #999;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+
+      
+   
+
+  <div class="bg-dark text-white mx-2 px-2 py-4" style=" width: 100%; top: 0; ">
+    
+     <% if (Class.branch=="CSE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Computer Science <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="IT") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Information Technology <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="ECE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Electronics And Communication <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+    <% if (Class.branch=="EEE") { %>
+      <div style="font-size:xx-large; font-weight: bold;">
+        Branch: Electrical And Electronics <%= Class.Shift %>, <%= Class.year %>  
+      </div>
+    <% } %>
+ 
+  <div class="m-0" style="font-size: x-large; font-style: italic ;">Subject: <%= Class.subject %></div>
+  <% const month = new Date().getMonth(); %>
+  <% const Year = new Date().getFullYear(); %>
+  
+  <% if (month==0) { %>
+    <div>Month: January, <%= Year %></div>
+  <% } %>
+  <% if (month==1) { %>
+    <div>Month: February, <%= Year %></div>
+  <% } %>
+  <% if (month==2) { %>
+    <div>Month: March, <%= Year %></div>
+  <% } %>
+  <% if (month==3) { %>
+    <div>Month: April, <%= Year %></div>
+  <% } %>
+  <% if (month==4) { %>
+    <div>Month: May, <%= Year %></div>
+  <% } %>
+  <% if (month==5) { %>
+    <div>Month: June, <%= Year %></div>
+  <% } %>
+  <% if (month==6) { %>
+    <div>Month: July, <%= Year %></div>
+  <% } %>
+  <% if (month==7) { %>
+    <div>Month: August, <%= Year %></div>
+  <% } %>
+  <% if (month==8) { %>
+    <div>Month: September, <%= Year %></div>
+  <% } %>
+  <% if (month==9) { %>
+    <div>Month: October, <%= Year %></div>
+  <% } %>
+  <% if (month==10) { %>
+    <div>Month: November, <%= Year %></div>
+  <% } %>
+  <% if (month==11) { %>
+    <div>Month: December, <%= Year %></div>
+  <% } %>
+ 
+  
+  </div>
+
+  <div>
+    <table class="table" style="top: 200px" id="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Enrollment No.</th>
+          <th scope="col">Name</th>
+          <% for( let i = 1; i <= 31; i++ ) { %>
+            <th scope="col"><%= i %></th>
+          <% } %>
+          <th scope="col">Present</th>
+          <th scope="col">Total Days</th>
+        </tr>
+      </thead>
+      <% let i=0; %> 
+    <% for(let j=0; j<record.length; j++){ %>
+      <% if (std[i]) { %>
+    
+       <% const att=record[j] %> 
+        <% const student=std[j] %> 
+        <tbody class="bg-light">
+          <tr>
+            <% i=i+1 %> 
+            <th scope="row"><%= i %> </th>
+            <td> <%= student.enrollNo %> </td>
+            <td> <%= student.name %> </td>
+            <% let k=0 %>
+            <% for( let r = 1; r <= 31; r++ ) { %>
+              <% if (Math.abs(att.Days[k]) == r) { %>
+                <% if (att.Days[k]>0) { %>
+                  <td>Present</td>
+                <% } else { %>
+                  <td>Absent</td>
+                <% } %>
+                <% k=k+1 %>
+              <% } else { %>
+                <td>-</td>
+              <% } %>
+
+            <% } %>
+            <td><%= att.present %></td>
+            <td><%= att.totalDays %> </td>
+          </tr>
+        </tbody>
+             
+      <% } %> 
+    <% } %>
+  </table>
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.min.js" integrity="sha512-8y82APPyIOwaBCEuQoZM4KdySliHcT2dQwZzkdOx7l2LfGS01ZvNg0A7PpplNTYN66tz7skkFr4rihZQhf9yGA==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous"></script>
+
+  <script>
+  $('table').tableExport();
+  TableExport(document.getElementsByTagName("table"), {
+  headers: true,                      // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
+  footers: true,                      // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
+  formats: ["xls"],    // (String[]), filetype(s) for the export, (default: ['xlsx', 'csv', 'txt'])
+  filename: "id",                     // (id, String), filename for the downloaded file, (default: 'id')
+  bootstrap: true,                   // (Boolean), style buttons using bootstrap, (default: true)
+  exportButtons: true,                // (Boolean), automatically generate the built-in export buttons for each of the specified formats (default: true)
+  position: "bottom",                 // (top, bottom), position of the caption element relative to table, (default: 'bottom')
+  ignoreRows: null,                   // (Number, Number[]), row indices to exclude from the exported file(s) (default: null)
+  ignoreCols: null,                   // (Number, Number[]), column indices to exclude from the exported file(s) (default: null)
+  trimWhitespace: true,               // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
+  RTL: false,                         // (Boolean), set direction of the worksheet to right-to-left (default: false)
+  sheetname: "id"                     // (id, String), sheet name for the exported spreadsheet, (default: 'id')
+});
+  
+  </script>
+</body>
+</html>
