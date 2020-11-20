@@ -12,7 +12,7 @@ div.content {
   left: 200px;
   padding: 1px 16px;
 }
-body{
+body,html{
     background:white;
     margin:0;
     padding:0;
@@ -185,6 +185,7 @@ a,a:active,a:hover,a:link{
       text-align: center;
       float: none;
     }
+    
   }
   .hide{
     display:none;
@@ -210,4 +211,8 @@ a,a:active,a:hover,a:link{
  }
  .hidden-1{
    display: none;
+ }
+ .foot{
+   position: fixed;
+   width: 100%;
  }
