@@ -101,11 +101,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {req, req});
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", {req: req});
 });
 
 app.get("/home", function (req, res) {
@@ -314,13 +314,21 @@ app.get("/logout", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
+  const password = req.body.password;
+  const confirm = req.body.confirm;
+  console.log(password!=confirm);
+  if(password!=confirm){
+    req.session.signuperror="Passwords don't match";
+    res.redirect("/signup");
+  } else {
   User.register(
     { name: req.body.name, username: req.body.username },
     req.body.password,
     (err, user) => {
       if (err) {
         console.log(err);
-        res.render("signup");
+        req.session.signuperror="Username Already Exists";
+        res.redirect("/signup");
       } else {
         passport.authenticate("local")(req, res, () => {
           res.redirect("/home");
@@ -328,6 +336,7 @@ app.post("/signup", (req, res) => {
       }
     }
   );
+  }
 });
 
 app.post("/login", (req, res) => {
