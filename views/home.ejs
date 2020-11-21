@@ -58,8 +58,9 @@
 
                               <form action="/newclass" method="POST">
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Branch</label>
-                                  <select class="form-control" id="exampleFormControlSelect1" name="branch">
+                                  <label for="select-branch">Select Branch</label> 
+                                  <select class="form-control" id="select-branch" name="branch" onchange="changeValue(event)" required>
+                                    <option value="">Choose Branch</option>
                                     <option value="CSE">Computer Science And Engineering</option>
                                     <option value="IT">Information Technology</option>
                                     <option value="ECE">Electronics And Communication</option>
@@ -67,36 +68,38 @@
                                   </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Shift</label>
-                                  <select class="form-control" id="exampleFormControlSelect1 " name="Shift">
+                                  <label for="select-shift">Select Shift</label>
+                                  <select class="form-control" id="select-shift" disabled="disabled" name="Shift required">
+                                    <option value="" >Choose Shift</option>
                                     <div class="cse">
-                                      <option value="CSE-1" >CSE-1</option>
-                                      <option value="CSE-2" >CSE-2</option>
-                                      <option value="CSE-3" >CSE-3</option>
-                                      <option value="CSE-eve" >CSE-eve</option>
+                                      <option id="cse-1" disabled="disabled" value="CSE-1" >CSE-1</option>
+                                      <option id="cse-2" disabled="disabled" value="CSE-2" >CSE-2</option>
+                                      <option id="cse-3" disabled="disabled" value="CSE-3" >CSE-3</option>
+                                      <option id="cse-eve" disabled="disabled" value="CSE-eve" >CSE-eve</option>
                                       
                                     </div>
                                     <div class="it">
-                                      <option value="IT-1" >IT-1</option>
-                                      <option value="IT-2" >IT-2</option>
-                                      <option value="IT-Eve" >IT-Eve</option>
+                                      <option id="it-1" disabled="disabled" value="IT-1" >IT-1</option>
+                                      <option id="it-2" disabled="disabled" value="IT-2" >IT-2</option>
+                                      <option id="it-eve" disabled="disabled" value="IT-Eve" >IT-Eve</option>
 
                                     </div>
                                     <div class="ece">
-                                      <option value="ECE-1" >ECE-1</option>
-                                      <option value="ECE-2" >ECE-2</option>
-                                      <option value="ECE-eve" >ECE-eve</option>
+                                      <option id="ece-1" disabled="disabled" value="ECE-1" >ECE-1</option>
+                                      <option id="ece-2" disabled="disabled" value="ECE-2" >ECE-2</option>
+                                      <option id="ece-eve" disabled="disabled" value="ECE-eve" >ECE-eve</option>
                                     
                                     </div>
                                     <div class="eee">
-                                      <option value="EEE-1" >EEE-1</option>
+                                      <option id="eee-1" disabled="disabled" value="EEE-1" >EEE-1</option>
 
                                     </div>
                                   </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Year</label>
-                                  <select class="form-control" id="exampleFormControlSelect1" name="year" >
+                                  <label for="select-year">Select Year</label>
+                                  <select class="form-control" id="select-year" name="year" required>
+                                    <option value="">Choose Year</option>
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
                                     <option value="2018">2018</option>
@@ -105,7 +108,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlTextarea1">Enter Subject</label>
-                                  <textarea class="form-control " id="exampleFormControlTextarea1" rows="1" name="subject" placeholder="Subject"></textarea>
+                                  <textarea class="form-control " id="exampleFormControlTextarea1" rows="1" name="subject" placeholder="Subject" required></textarea>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -188,8 +191,35 @@
 </div>
                  -->
        
-  <script src="home.ejs"></script>      
+      
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="/javascript/home.js"></script>  
+  <script>
+    const changeValue = (event) => {
+      console.log(event.target.value);
+      if(event.target.value){
+        console.log(document.getElementById("select-shift").disabled);
+        document.getElementById("select-shift").disabled=false;
+        if(event.target.value==="CSE"){
+          document.getElementById("cse-1").disabled=false;
+          document.getElementById("cse-2").disabled=false;
+          document.getElementById("cse-3").disabled=false;
+          document.getElementById("cse-eve").disabled=false;
+        } else if(event.target.value==="IT"){
+          document.getElementById("it-1").disabled=false;
+          document.getElementById("it-2").disabled=false;
+          document.getElementById("it-eve").disabled=false;
+        } else if(event.target.value==="ECE"){
+          document.getElementById("ece-1").disabled=false;
+          document.getElementById("ece-2").disabled=false;
+          document.getElementById("ece-eve").disabled=false;
+        } else if(event.target.value==="EEE"){
+          document.getElementById("eee-1").disabled=false;
+        }
+      }
+    }
+    
+  </script>
 </body>
 </html>
