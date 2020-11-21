@@ -1,4 +1,4 @@
-body {
+body,html {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -35,7 +35,7 @@ body {
 }
 
 .bg-cover {
-      background: url('study.jpg') no-repeat center center;
+      background: url('/img/study.jpg') no-repeat center center;
       background-size: cover;
       padding-top: 20%;
       padding-bottom: 20%;   
@@ -47,7 +47,7 @@ body {
 }
 
 .bg-cover2 {
-      background: url('/images/about.jpg') no-repeat center center;
+      background: url('/img/about.jpg') no-repeat center center;
       background-size: cover;
       padding-top: 20%;
       padding-bottom: 20%;   
@@ -278,7 +278,7 @@ body {
 .card .image img {
     width: 100%;
     transition: .5s;
-    min-height: 440px;
+    min-height: 350px;
 }
 .card:hover .image img {
     opacity: .5;
@@ -601,20 +601,23 @@ height:100%;
  
 
 .font-size-about{
-	font-size: 1.6rem
+	font-size: 1.4rem
 }
 @media only screen and (max-width: 957px){
 	.font-size-about{
-		font-size: 1.3rem
+		font-size: 1.2rem
 	}
 }
 @media only screen and (max-width: 639px){
 	.font-size-about{
-		font-size: 1rem
+		font-size: 0.95rem
 	}
 }
 @media only screen and (max-width: 400px){
 	.font-size-about{
 		font-size: 0.9rem
 	}
+}
+.size-about{
+  font-size: 1.1rem;
 }
