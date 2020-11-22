@@ -655,6 +655,6 @@ app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (re
   }); 
 });
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log("Server running at port 8080");
 });
