@@ -570,6 +570,7 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 }
+                console.log(att.Days.length);
                 let totalDaysAttendance = att.Days.length + 1;
                 Attendance.findOneAndUpdate(
                   { _id: att.id },
@@ -583,9 +584,10 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                   }
                 );
               } else {
-               let totalDays = att.Days.length;
+               let totalDaysAttendance = att.Days.length;
+               console.log(att.Days.length);
                let total = att.present;
-               if(att.Days[totalDays-1]==day || att.Days[totalDays-1]==-day){
+               if(att.Days[totalDaysAttendance-1]==day || att.Days[totalDaysAttendance-1]==-day){
                 //  res.redirect("/submitted");
                 console.log("Already Submitted!!!!");
                } else {
@@ -617,9 +619,10 @@ app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     }
                   );
                 }
+                totalDaysAttendance = totalDaysAttendance + 1;
                 Attendance.findOneAndUpdate(
                   { _id: att.id },
-                  { present: total, totalDays: totalDays },
+                  { present: total, totalDays: totalDaysAttendance },
                   (err, updateAtt) => {
                     if (err) {
                       console.log(err);
