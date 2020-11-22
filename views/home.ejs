@@ -1,14 +1,15 @@
 <%- include('./partials/top2.ejs') %>
 
   <div class="top-nav width">
-    <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3>
+    <!-- <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3> -->
+    <img src="/img/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
   </div>
 
     <!-- The sidebar -->
-    <div class="sidebar">
-      <a class="active text-center width font-weight-bold" href="#">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
-      <a class="active text-center font-italic" id="name" href="#"><%= name %> </a>
-      <a class="active text-center font-italic"id="mail" href="#"><%= username %> </a>
+    <div class="sidebar nav-setting">
+      <a class="active width-setting text-center width font-weight-bold" href="">User Profile<i class="fa fa-user icon" aria-hidden="true"></i></a>
+      <a class="active width-setting text-center font-italic" id="name" href=""><%= name %> </a>
+      <a class="active width-setting text-center font-italic"id="mail" href=""><%= username %> </a>
       <a class="width" href="/">Home</a>
       <a class="width" href="/#About">About</a>
       <a class="width" href="/#Contact">Contact</a>
@@ -16,19 +17,24 @@
     </div>
     
     <!-- Page content -->
-          <div class="content box container display-3">
+   
+     
+    
+          <div class="content box display-3 pr-0 pl-0 pl-sm-4">
               <div>
-                <div class="hide">
-                <h1>No Batch Exists</h1>
+                <% if (classList == 0) { %>
+                <div class="mt-5 px-3">
+                <h1 class="pt-5">No Batch Exists</h1>
                 <h1>To create New Click below :</h1>
                 <br>
                 </div>
+                <% } %>
                 <!-- Button trigger modal -->
                 <div class="row justify-content-end mr-5 mb-2"id="main-btn">
                   <div col-12>
                     <button class="btn btn-outline-info color-btn btn-lg "id="main-btn-edit" data-toggle="modal" data-target="#exampleModal">
                       <i class="fa fa-plus ml-1 mr-0" aria-hidden="true"></i>
-                      <a href="#">New Batch</a>
+                      <a href="">New Batch</a>
                     </button>
                   </div>
                   
@@ -52,8 +58,9 @@
 
                               <form action="/newclass" method="POST">
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Branch</label>
-                                  <select class="form-control" id="exampleFormControlSelect1" name="branch">
+                                  <label for="select-branch">Select Branch</label> 
+                                  <select class="form-control" id="select-branch" name="branch" onchange="changeValue(event)" required>
+                                    <option value="">Choose Branch</option>
                                     <option value="CSE">Computer Science And Engineering</option>
                                     <option value="IT">Information Technology</option>
                                     <option value="ECE">Electronics And Communication</option>
@@ -61,36 +68,38 @@
                                   </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Shift</label>
-                                  <select class="form-control" id="exampleFormControlSelect1 " name="Shift">
+                                  <label for="select-shift">Select Shift</label>
+                                  <select class="form-control" id="select-shift" disabled="disabled" name="Shift" required>
+                                    <option value="" >Choose Shift</option>
                                     <div class="cse">
-                                      <option value="CSE-1" >CSE-1</option>
-                                      <option value="CSE-2" >CSE-2</option>
-                                      <option value="CSE-3" >CSE-3</option>
-                                      <option value="CSE-eve" >CSE-eve</option>
+                                      <option id="cse-1" disabled="disabled" style="display: none;" value="CSE-1" >CSE-1</option>
+                                      <option id="cse-2" disabled="disabled" style="display: none;" value="CSE-2" >CSE-2</option>
+                                      <option id="cse-3" disabled="disabled" style="display: none;" value="CSE-3" >CSE-3</option>
+                                      <option id="cse-eve" disabled="disabled" style="display: none;" value="CSE-eve" >CSE-eve</option>
                                       
                                     </div>
                                     <div class="it">
-                                      <option value="IT-1" >IT-1</option>
-                                      <option value="IT-2" >IT-2</option>
-                                      <option value="IT-Eve" >IT-Eve</option>
+                                      <option id="it-1" disabled="disabled" style="display: none;" value="IT-1" >IT-1</option>
+                                      <option id="it-2" disabled="disabled" style="display: none;" value="IT-2" >IT-2</option>
+                                      <option id="it-eve" disabled="disabled" style="display: none;" value="IT-Eve" >IT-Eve</option>
 
                                     </div>
                                     <div class="ece">
-                                      <option value="ECE-1" >ECE-1</option>
-                                      <option value="ECE-2" >ECE-2</option>
-                                      <option value="ECE-eve" >ECE-eve</option>
+                                      <option id="ece-1" disabled="disabled" style="display: none;" value="ECE-1" >ECE-1</option>
+                                      <option id="ece-2" disabled="disabled" style="display: none;" value="ECE-2" >ECE-2</option>
+                                      <option id="ece-eve" disabled="disabled" style="display: none;" value="ECE-eve" >ECE-eve</option>
                                     
                                     </div>
                                     <div class="eee">
-                                      <option value="EEE-1" >EEE-1</option>
+                                      <option id="eee-1" disabled="disabled" style="display: none;" value="EEE-1" >EEE-1</option>
 
                                     </div>
                                   </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleFormControlSelect1">Select Year</label>
-                                  <select class="form-control" id="exampleFormControlSelect1" name="year" >
+                                  <label for="select-year">Select Year</label>
+                                  <select class="form-control" id="select-year" name="year" required>
+                                    <option value="">Choose Year</option>
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
                                     <option value="2018">2018</option>
@@ -99,7 +108,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlTextarea1">Enter Subject</label>
-                                  <textarea class="form-control " id="exampleFormControlTextarea1" rows="1" name="subject" placeholder="Subject"></textarea>
+                                  <textarea class="form-control " id="exampleFormControlTextarea1" rows="1" name="subject" placeholder="Subject" required></textarea>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,10 +123,12 @@
                     </div>
                   </div>
                   <!--Modal end-->
-
-                  <div class="content mr-1 ml-4 container display-3">
+                  <% if (classList.length != 0) { %>
+                   
+                  
+                  <div class="content container display-3 m-auto px-0">
                     
-                    <div class="row justify-content-around ">
+                    <div class="row justify-content-around m-md-auto pl-md-3 m-0">
                       
                       <% classList.forEach(batch => { %> 
                         
@@ -130,7 +141,7 @@
                                 <h6 class="card-subtitle mb-2 text-muted"><%= batch.subject %></h6>
                                 <div class="row justify-content-center">
                                   
-                                  <div class="col-6">
+                                  <div class="col-12 col-sm-6 my-0 my-sm-3">
                                     <!-- Button trigger modal -->
                                     <button class="card-link btn btn-outline-secondary color-btn btn-lg" data-toggle="modal" data-target="#exampleModal1">
                                     <a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a>
@@ -139,7 +150,7 @@
                                     
                                   
                                   </div>
-                                  <div class="col-6">
+                                  <div class="col-12 col-sm-6 my-0 my-sm-3">
                                     
                                     <button class="card-link btn btn-secondary color-btn btn-lg ">
                                       <a href="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" class="text-light" >DELETE</a>
@@ -160,16 +171,30 @@
                       
                     </div>
                   </div>
-                                
+                  <% } %>              
                 
               
               </div>
-            
+              
+                  <!-- Footer -->
+<div class="bg-dark text-light p-3 text-center " style="bottom: 0; z-index: 2000; margin-top: 350px">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
           </div>
-          
+  
+
+                  <!-- Footer -->
+<!-- <div class="foot bg-dark text-light p-3 text-center hidden-1 " style="bottom: 0; z-index: 2000; margin-top: 100px">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
+                 -->
        
-  <script src="home.ejs"></script>      
+      
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="/js/home.js"></script>  
+
 </body>
 </html>

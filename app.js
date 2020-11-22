@@ -101,11 +101,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {req, req});
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", {req: req});
 });
 
 app.get("/home", function (req, res) {
@@ -117,7 +117,8 @@ app.get("/home", function (req, res) {
         res.render("home", {
           classList: classes,
           name: req.user.name,
-          username: req.user.username
+          username: req.user.username,
+          len: classes.length
         });
       }
     });
@@ -202,9 +203,29 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     totalDays: 0,
                     present: 0,
                   });
+                  
                   record.save();
+                  console.log(record);
                 } else {
+                  console.log(foundRecord);
                   // console.log(foundRecord.totalDays);
+                  if(Month!=foundRecord.month){
+                      Attendance.findOneAndDelete({_id: foundRecord.id}, (err, delAtt) => {
+                        if(err){
+                          console.log(err);
+                        } else {
+                          console.log(delAtt);
+                          const record = new Attendance({
+                            month: Month,
+                            stdId: studentItem[i].id,
+                            classId: req.params.presentClassId,
+                            totalDays: 0,
+                            present: 0,
+                          });
+                          record.save();
+                        }
+                      });
+                  }
                   if(foundRecord.Days.length>0 && foundRecord.totalDays>0){
                     // console.log(foundRecord.totalDays);
                     // console.log("ABC"+foundRecord.Days[0]);
@@ -212,6 +233,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
                     dd = new Date().getDate();
                     // console.log("DD"+dd);
                     // console.log("fr"+foundRecord.Days[index]);
+                    
                     if(foundRecord.Days[index]==dd){
                       console.log("Already Submitted");
                     }
@@ -226,6 +248,7 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
             }
           );
         }
+
         res.render("attendance", {
           presentClassId: req.params.presentClassId,
           presentBatchId: req.params.presentBatchId,
@@ -237,6 +260,8 @@ app.get("/:presentClassId/:presentBatchId/attendance", (req, res) => {
           Year: year,
           TodayDate: TodayDate,
           dd: TodayDate.getDate(),
+          name: req.user.name,
+          username: req.user.username
         });
       } 
     }); 
@@ -275,6 +300,13 @@ app.get("/:presentClassId/:presentBatchId/record", (req, res) => {
   }
 });
 
+app.get("/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent", (req, res) =>{
+  if (req.isAuthenticated()){
+    res.render("deleteStudent", {classId: req.params.presentClassId, batchId: req.params.presentBatchId, stdId: req.params.presentStudentId});
+  } else {
+    res.redirect("/login");
+  }
+});
 
 app.get("/logout", (req, res) => {
   req.logout();
@@ -282,13 +314,21 @@ app.get("/logout", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
+  const password = req.body.password;
+  const confirm = req.body.confirm;
+  console.log(password!=confirm);
+  if(password!=confirm){
+    req.session.signuperror="Passwords don't match";
+    res.redirect("/signup");
+  } else {
   User.register(
     { name: req.body.name, username: req.body.username },
     req.body.password,
     (err, user) => {
       if (err) {
         console.log(err);
-        res.render("signup");
+        req.session.signuperror="Username Already Exists";
+        res.redirect("/signup");
       } else {
         passport.authenticate("local")(req, res, () => {
           res.redirect("/home");
@@ -296,6 +336,7 @@ app.post("/signup", (req, res) => {
       }
     }
   );
+  }
 });
 
 app.post("/login", (req, res) => {
@@ -402,7 +443,7 @@ app.post("/newclass", (req, res) => {
             userId: req.user.id,
             slotId: foundShift.id,
           });
-
+          
           batch.save();
           res.redirect("home");
         }
@@ -426,13 +467,27 @@ app.post("/:presentClassId/:presentBatchId/updateClass", (req, res) => {
 });
 
 app.post("/:presentClassId/:presentBatchId/deleteClass", (req, res) => {
+  // Class.findOne({_id: req.params.presentClassId}, (err, foundC) => {
+  //   console.log(foundC);
+  // });
   Class.findByIdAndDelete(
     { _id: req.params.presentClassId },
     (err, deletedClass) => {
       if (err) {
         console.log(err);
       } else {
-        res.redirect("/home");
+        console.log(deletedClass);
+        // Attendance.find({classId: req.params.presentClassId}, (err, delA) => {
+        //   console.log(delA);
+        // });
+        Attendance.deleteMany({classId: req.params.presentClassId}, (err, deletedAtt) => {
+          if(err){
+            console.log(err);
+          } else {
+            console.log(deletedAtt);
+            res.redirect("/home");
+          }
+        });  
       }
     }
   );
@@ -462,57 +517,10 @@ app.post("/:presentClassId/:presentBatchId/newStudent", (req, res) => {
           req.params.presentBatchId +
           "/attendance"
       );
-      
-      newStudent.save();
-      res.redirect("/"+req.params.presentClassId+'/'+req.params.presentBatchId+'/attendance');
-
     }
   });
 });
 
-app.post(
-  "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
-  (req, res) => {
-    Student.findOneAndDelete(
-      { _id: req.params.presentStudentId },
-      (err, deletedStudent) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.redirect(
-            "/" +
-              req.params.presentClassId +
-              "/" +
-              req.params.presentBatchId +
-              "/attendance"
-          );
-        }
-      }
-    );
-  }
-);
-
-app.post(
-  "/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent",
-  (req, res) => {
-    Student.findOneAndDelete(
-      { _id: req.params.presentStudentId },
-      (err, deletedStudent) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.redirect(
-            "/" +
-              req.params.presentClassId +
-              "/" +
-              req.params.presentBatchId +
-              "/attendance"
-          );
-        }
-      }
-    );
-  }
-);
 
 app.post("/:presentClassId/:presentBatchId/attendance", (req, res) => {
   Student.find({ slotId: req.params.presentBatchId }, (err, foundStudent) => {
@@ -636,7 +644,7 @@ app.post('/:presentClassId/:presentBatchId/:presentStudentId/deleteStudent', (re
     if(err){
       console.log(err);
     } else {
-      Attendance.findOneAndDelete({stdId: req.params.presentStudentId}, (err, deletedAtt) => {
+      Attendance.deleteMany({stdId: req.params.presentStudentId}, (err, deletedAtt) => {
         if(err){
           console.log(err);
         } else {

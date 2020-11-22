@@ -1,0 +1,105 @@
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+const changeValue = (event) => {
+  console.log(event.target.value);
+  if(event.target.value){
+    console.log(document.getElementById("select-shift").disabled);
+    document.getElementById("select-shift").disabled=false;
+    if(event.target.value==="CSE"){
+      document.getElementById("cse-1").disabled=false;
+      document.getElementById("cse-2").disabled=false;
+      document.getElementById("cse-3").disabled=false;
+      document.getElementById("cse-eve").disabled=false;
+      document.getElementById("cse-1").style.display="block";
+      document.getElementById("cse-2").style.display="block";
+      document.getElementById("cse-3").style.display="block";
+      document.getElementById("cse-eve").style.display="block";
+      document.getElementById("it-1").disabled=true;
+      document.getElementById("it-2").disabled=true;
+      document.getElementById("it-eve").disabled=true;
+      document.getElementById("it-1").style.display="none";
+      document.getElementById("it-2").style.display="none";
+      document.getElementById("it-eve").style.display="none";
+      document.getElementById("ece-1").disabled=true;
+      document.getElementById("ece-2").disabled=true;
+      document.getElementById("ece-eve").disabled=true;
+      document.getElementById("ece-1").style.display="none";
+      document.getElementById("ece-2").style.display="none";
+      document.getElementById("ece-eve").style.display="none";
+      document.getElementById("eee-1").disabled=true;
+      document.getElementById("eee-1").style.display="none";
+    } else if(event.target.value==="IT"){
+      document.getElementById("it-1").disabled=false;
+      document.getElementById("it-2").disabled=false;
+      document.getElementById("it-eve").disabled=false;
+      document.getElementById("it-1").style.display="block";
+      document.getElementById("it-2").style.display="block";
+      document.getElementById("it-eve").style.display="block";
+      document.getElementById("ece-1").disabled=true;
+      document.getElementById("ece-2").disabled=true;
+      document.getElementById("ece-eve").disabled=true;
+      document.getElementById("ece-1").style.display="none";
+      document.getElementById("ece-2").style.display="none";
+      document.getElementById("ece-eve").style.display="none";
+      document.getElementById("eee-1").disabled=true;
+      document.getElementById("eee-1").style.display="none";
+      document.getElementById("cse-1").disabled=true;
+      document.getElementById("cse-2").disabled=true;
+      document.getElementById("cse-3").disabled=true;
+      document.getElementById("cse-eve").disabled=true;
+      document.getElementById("cse-1").style.display="none";
+      document.getElementById("cse-2").style.display="none";
+      document.getElementById("cse-3").style.display="none";
+      document.getElementById("cse-eve").style.display="none";
+    } else if(event.target.value==="ECE"){
+      document.getElementById("ece-1").disabled=false;
+      document.getElementById("ece-2").disabled=false;
+      document.getElementById("ece-eve").disabled=false;
+      document.getElementById("ece-1").style.display="block";
+      document.getElementById("ece-2").style.display="block";
+      document.getElementById("ece-eve").style.display="block";
+      document.getElementById("it-1").disabled=true;
+      document.getElementById("it-2").disabled=true;
+      document.getElementById("it-eve").disabled=true;
+      document.getElementById("it-1").style.display="none";
+      document.getElementById("it-2").style.display="none";
+      document.getElementById("it-eve").style.display="none";
+      document.getElementById("eee-1").disabled=true;
+      document.getElementById("eee-1").style.display="none";
+      document.getElementById("cse-1").disabled=true;
+      document.getElementById("cse-2").disabled=true;
+      document.getElementById("cse-3").disabled=true;
+      document.getElementById("cse-eve").disabled=true;
+      document.getElementById("cse-1").style.display="none";
+      document.getElementById("cse-2").style.display="none";
+      document.getElementById("cse-3").style.display="none";
+      document.getElementById("cse-eve").style.display="none";
+    } else if(event.target.value==="EEE"){
+      document.getElementById("eee-1").disabled=false;
+      document.getElementById("eee-1").style.display="block";
+      document.getElementById("it-1").disabled=true;
+      document.getElementById("it-2").disabled=true;
+      document.getElementById("it-eve").disabled=true;
+      document.getElementById("it-1").style.display="none";
+      document.getElementById("it-2").style.display="none";
+      document.getElementById("it-eve").style.display="none"; 
+      document.getElementById("ece-1").disabled=true;
+      document.getElementById("ece-2").disabled=true;
+      document.getElementById("ece-eve").disabled=true;
+      document.getElementById("ece-1").style.display="none";
+      document.getElementById("ece-2").style.display="none";
+      document.getElementById("ece-eve").style.display="none";
+      document.getElementById("cse-1").disabled=true;
+      document.getElementById("cse-2").disabled=true;
+      document.getElementById("cse-3").disabled=true;
+      document.getElementById("cse-eve").disabled=true;
+      document.getElementById("cse-1").style.display="none";
+      document.getElementById("cse-2").style.display="none";
+      document.getElementById("cse-3").style.display="none";
+      document.getElementById("cse-eve").style.display="none";
+    }
+  }
+}
+
+

@@ -1,89 +1,135 @@
-<%- include('./partials/top.ejs') %>
-  <h1>Attendance</h1>
+<%- include('./partials/tope.ejs') %>
 
-  <button><a href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent">Add Student</a></button>
+<div class="top-nav width d-flex align-item-center">
+  <div class="container">
+    <img src="/img/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
+  </div>
+</div>
 
-  <p><%= studentList[0].branch %> </p>
-  <p><%= studentList[0].Shift %> </p>
-  <p><%= studentList[0].year %> </p> <!--Year of student studying-->
-  <p><%= Month %> </p>
-  <p><%= dd %> </p>
-  <p><%= TodayDate %> </p>
-  <p><%= Year %> </p> <!--Present Year-->
-
-
-
-  <div>P - Present</div>
-  <div>A - Absent</div>
-  <div>NW - not a working day</div>
-
+  <div class="container top-setting justify-content-center" >
+    
+    <div class="row justify-content-between">
+      <button class="btn btn-outline-dark mx-0 my-2 btn-create"><a href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent"><h4><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add Student</h4></a></button>
+      <button class="btn btn-outline-dark mx-0 my-2 btn-create"><a href="/home"><h4><i class="fas fa-backward pr-1"></i> Go Back</h4></a></button>
+    </div>
   
-  <div><h3>Don't Forget To Save The Attendance.</h3></div>
-  <div><button type="submit">Save Attendance</button></div>
 
-
+  <div class="row justify-content-between my-3 text-light px-1 bg-dark boxes align-items-center">
   
-  <div>P - Present</div>
-  <div>A - Absent</div>
-  <div>NW - not a working day</div>
-
-  
-  <div><h3>Don't Forget To Save The Attendance.</h3></div>
-  
-  <div>
-  <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
-    <button type="submit">Save Attendance</button>
-    <% studentList.forEach(std => { %>
-      <div class="row justify-content-around">
-        <div class="col-7">
-          <div class="mb-5">
-            <span><%= sno+1 %>  </span>
-            <% sno+=1 %> 
-            <span><%= std.enrollNo %> </span>
-            <span><%= std.name %> </span>
-          </div>
+    <div class="col-lg-5 bg-dark py-3 text-center">
+      <div class="row align-items-center">
+        <h4 class="col-3"><i class="fas fa-calendar-day" style="font-size: 3rem;"></i></h4>
+        <div class="col-9">
+      <div>
+        <% if (studentList[0].branch=="CSE") { %>
+          <h5>
+            Branch: Computer Science <%= studentList[0].Shift %>, <%= studentList[0].year %>  
+          </h5>
+        <% } %>
+        <% if (studentList[0].branch=="IT") { %>
+          <h5>
+            Branch: Information Technology <%= studentList[0].Shift %>, <%= studentList[0].year %>  
+          </h5>
+        <% } %>
+        <% if (studentList[0].branch=="ECE") { %>
+          <h5>
+            Branch: Electronics And Communication <%= studentList[0].Shift %>, <%= studentList[0].year %>  
+          </h5>
+        <% } %>
+        <% if (studentList[0].branch=="EEE") { %>
+          <h5>
+            Branch: Electrical And Electronics <%= studentList[0].Shift %>, <%= studentList[0].year %>  
+          </h5>
+        <% } %>
+        
+          <h5 class="" style="font-weight: 300;"><em> <%= TodayDate %></em> </h5>
         </div>
-        <div class="col-2">
-          <div class="class">
-            <div>
-              <span><%= dd %> </span>
-              <select name="dd" onchange=attendanceChangeHandler(event)>
-                <option value=0>P/A</option>
-                <option value=0>NW</option>
-                <option value=1>P</option>
-                <option value=2>A</option>
-              </select>
+        </div>
+      </div> 
+    </div>
+    <div class="col-lg-4 bg-dark py-3 text-center">
+      <div class="row flex-lg-row-reverse">
+        <h3 class="col-3"><i class="fas fa-user mr-lg-5" style="font-size: 3rem;"></i></h3>
+        <div class="col-9">
+          <h5><%= name %></h5>
+          <h5 style="font-weight: 300;"><%= username %></h5>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="alert alert-danger mx-0 row" style="border-radius: 0;" role="alert">
+    <div>Dont't Forget To Submit The Form. Submits and updates the record ONCE a day</div>
+    <div></div>
+  </div>
+  
+  
+  <div class="row justify-content-between bg-layout py-4 pl-lg-5">
+
+    <div class="col-lg-9 col-7">
+      <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
+        <% studentList.forEach(std => { %>
+          <div class="row justify-content-start">
+            <div class="col-sm-9 col-12">
+              <div class="mb-sm-5 row">
+                <div class="col-lg-2 col-md-1 col-12 mt-sm-0 mt-5"><%= sno+1 %>.  </div>
+                <% sno+=1 %> 
+                <div class="col-lg-3 col-md-10 col-12"><%= std.enrollNo %> </div>
+                <div class="col-lg-7 col-md-12 col-12"><%= std.name %> </div>
+              </div>
+            </div>
+            <div class="col-sm-3 col-12">
+              <div class="class">
+                <div>
+                  <select name="dd"class="custom-select" onchange=attendanceChangeHandler(event)>
+                    <option value=0>Mark Attendance</option>
+                    <option value=1>Present</option>
+                    <option value=2>Absent</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- <div class="col-3">
-          <div> -->
-            <form class="col-2" action="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent" method="POST">
-              <button type="submit">DELETE!</button>
-            </form>
-          <!-- </div>
-        </div> -->
-      </div>
-    <% }) %>
-   
-    
-  </form>
+        <% }) %>
+        <button type="submit" class="btn btn-outline-info color-btn mr-3 my-4 my-md-0">Save Attendance</button>
+        <button class="btn btn-dark text-light"><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View Record</a></button>
+      </form>
+    </div>
+    <div class="col-3 col-sm-2">
+        <% studentList.forEach(std => { %>
+          <div class="margin">
+              <button class="btn btn-dark text-light" data-toggle="tooltip" data-placement="bottom" title="Delete Student"><a href="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent"><i class="fas fa-trash-alt"></i></a></button>
+          </div>
+        <% }) %>
+    </div>
   </div>
     
      
     
-    
-  </div>  
-  <div><h3>Don't Forget To Save The Attendance.</h3></div>
-  <div><button type="submit">Save Attendance</button></div>
-  </form>
-  <button><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View Record</a></button>
+     
+  <div class="alert alert-danger mx-0 my-3" style="border-radius: 0;" role="alert">
+    <div>Dont't Forget To Submit The Form. Submits and updates the record ONCE a day</div>
+    <div></div>
+  </div>
+  <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
+  
+  </div>
+              <!-- Footer -->
+<div class="foot bg-dark text-light p-3  text-center" style="bottom: 0;">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
+  
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
 
-    <script>
-      attendanceChangeHandler = event => {
-        console.log(event.target.value);
-        console.log(event.target.name);
-      }
-    </script>
+    
+    
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>

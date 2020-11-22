@@ -1,44 +1,66 @@
 <%- include('./partials/top.ejs') %>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top nav-height">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top nav-height">
   <div class="container">
-  <a class="navbar-brand mr-auto " href="#">
-  	<img class="img-responsive" src="/images/presence2.png" alt=""></a>
-   </div>
-  </nav>
-  
-  <div class="signup-form">
-  	<div class="container">
-    <form action="\signup" method="post" class="form-horizontal">
-		<div class="col-xs-8 col-xs-offset-4">
-			<h2>Sign Up</h2>
-		</div>		
-        <div class="form-group">
-			<label class="control-label col-xs-4">Name</label>
-			<div class="col-xs-8">
-                <input type="text" name="name" id="" class="form-control" placeholder="Name" required="required">
-            </div>        	
-        </div>
-		<div class="form-group">
-			<label class="control-label col-xs-4">Email </label>
-			<div class="col-xs-8">
-                <input type="email" id="" class="form-control" name="username" placeholder="Email Address" required="required">
-            </div>        	
-        </div>
-		<div class="form-group">
-			<label class="control-label col-xs-4">Password</label>
-			<div class="col-xs-8">
-                <input type="password" name="password" id="" class="form-control" placeholder="Password" required="required">
-            </div>        	
-        </div>
-		
-		<div class="form-group">
-			<div class="col-xs-8 col-xs-offset-4">
-				<button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
-			</div>  
-		</div>		      
-    </form>
-	<div class="text-center">Already have an account? <a href="/login">Login here</a></div>
-</div>
+    <a class="navbar-brand mr-auto " href="#">
+      <img class="img-responsive" src="/img/presence2.png" alt=""></a>
+  </div>
+</nav>
+
+<div class="signup-form">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-11 col-sm-10 col-md-8 col-lg-6 thisIsBox">
+        <form action="\signup" method="post" class="form-horizontal">
+          <div class="col-xs-8 col-xs-offset-4">
+            <h2>Sign Up</h2>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-4">Name</label>
+            <div class="col-xs-8">
+              <input type="text" name="name" id="" class="form-control" placeholder="Name" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-4">Email </label>
+            <div class="col-xs-8">
+              <input type="email" id="" class="form-control" name="username" placeholder="Email Address"
+                required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-4">Password</label>
+            <div class="col-xs-8">
+              <input type="password" name="password" id="" class="form-control" placeholder="Password"
+                required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-4">Confirm Password</label>
+            <div class="col-xs-8">
+              <input type="password" name="confirm" id="" class="form-control" placeholder="Confirm-Password"
+                required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-8">
+              <% if (req.session.signuperror!= undefined) { %>
+                <div style="color: red;"><%= req.session.signuperror %> </div>
+              <% } %>  
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-8 col-xs-offset-4">
+              <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div class="mt-3">
+    <div class="text-center mt-3">Already have an account? <a href="/login">Login here</a></div>
+  </div>
 
 </div>
 <br>
@@ -46,17 +68,12 @@
 <br>
 <hr>
 
-<div class="footer">
-  <div id="button"></div>
-<div id="container">
-<div id="cont">
-<div class="footer_center">
-     <h5>Made with ❤️ <br><i class="fa fa-copyright"></i>
-     2020 Copyright, Code Her Things.</h5>
-   </div>
-</div>
+<div class="foot bg-dark text-light p-3  text-center" style="bottom: 0;">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
 </div>
 
-  <!-- Bakki ka page -->
+<!-- Bakki ka page -->
 </body>
+
 </html>

@@ -1,12 +1,43 @@
-<%- include('./partials/top.ejs') %>
+<%- include('./partials/top2.ejs') %>
 
-  <h1>NEW STUDENT</h1>
+  <div class="top-nav width">
+    <!-- <h3 id="head">Presence - <span class="text-sm"> Attendance Recorder</span></h3> -->
+    <img src="/img/PRESENCE Bhavya.png" class="brand-img px-3" alt="">
+  </div>
 
-  <form action="/<%= presentClassId %>/<%= presentBatchId %>/newStudent" method="POST">
-    <input type="text" placeholder="name" name="stdname" > 
-    <input type="text" placeholder="enrollment no" name="enrollno">  
-    <button type="submit">Create</button>
-  </form>
+  <div class="row mb-5">
+
+    <div class="mx-auto update-box p-3 col-10 col-sm-9 col-md-8 col-lg-6">
+    
+      <h1 class="pb-3 text-secondary">NEW STUDENT</h1>
+      <hr>
+      <form action="/<%= presentClassId %>/<%= presentBatchId %>/newStudent" method="POST">
+        <div class="form-group">
+          <label for="exampleInputName1">Student-Name</label>
+          <input type="text" placeholder="Name" name="stdname" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" required>
+          </div>
+        <div class="form-group">
+          <label for="exampleInputNumber1">Enrollment-Number</label>
+          <input type="text" placeholder="Enrollment number" name="enrollno"class="form-control" id="exampleInputNumber1" required>
+        </div> 
+        <div class="row justify-content-end px-3">
+          <div class=" btn-lg my-3 col-6 col-md-4 col-lg-3  text-center">
+            <button class="btn m-auto btn-info color-btn btn-lg"id="main-btn-edit"><a href="/<%= presentClassId %>/<%= presentBatchId %>/attendance">CANCEL</a></button>
+          </div>
+          <div class=" btn-lg my-3 col-6 col-md-4 col-lg-3  text-center">
+            <button type="submit" class="btn btn-outline-info color-btn btn-lg "id="main-btn-edit">ADD</button>
+          </div>
+        </div>
+        
+      </form>
+      
+    </div> 
+  </div>
+            <!-- Footer -->
+<div class="foot bg-dark text-light p-3  text-center" style="bottom: 0;">
+  <h5 class="m-0 pb-2">Made with ❤️ by Code Her Things </h5>
+  <h6 class="m-0 py-1"><i class="fa fa-copyright pr-1"></i>2020 Copyright, Code Her Things.</h6>
+</div>
 
 </body>
 </html>
