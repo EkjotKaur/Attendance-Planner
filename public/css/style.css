@@ -40,13 +40,26 @@ html {
 .bg-cover {
       background: url('/img/study.jpg') no-repeat center center;
       background-size: cover;
-      padding-top: 20%;
-      padding-bottom: 20%;   
+      padding-top: 13%;
+      padding-bottom: 13%;   
 }
-@media screen and (min-width: 579px){
-	.nav-height{
-		height: 80px;
-	}
+@media screen and (max-width: 611px){
+  .bg-cover{
+    padding-top: 20%;
+    padding-bottom: 20%;   
+}
+}
+@media screen and (max-width: 425px){
+  .bg-cover{
+    padding-top: 25%;
+    padding-bottom: 25%;   
+}
+}
+@media screen and (max-width: 350px){
+  .bg-cover{
+    padding-top: 30%;
+    padding-bottom: 30%;   
+}
 }
 
 .bg-cover2 {
@@ -57,8 +70,8 @@ html {
 }
 
 
-.btn .btn-info .mybtn{
- display:inline-block;
+/* .btn .btn-info .mybtn{
+ display: inline-block;
  padding:0.35rem 1.2rem;
  border:0.1rem solid #FFFFFF;
  margin:0 0.3rem 0.3rem 0;
@@ -71,9 +84,9 @@ html {
  text-align:center;
  transition: all 0.2s;
 
-}
+} */
 
-.btn .btn-info .mybtn:hover{
+/* .btn .btn-info .mybtn:hover{
  color:#000000;
  background-color:#FFFFFF;
 }
@@ -82,7 +95,7 @@ html {
   display:block;
   margin:0.4rem !important;
  }
-}
+} */
 
 
   #About {text-align:center; padding-top:50px;height:500px;color: #fff;width: 100%;}
@@ -362,7 +375,7 @@ html {
         border-radius: 3px;
     }
 	.signup-form {
-		max-width: 500px
+		max-width: 500px;
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
@@ -447,46 +460,64 @@ html {
 }
 
 
-<!---heading---->
+/* <!---heading----!> */
   
-  @media (max-width: 1020px) {
-      .jumbotron h1 {
-      font-size: 9rem;
+.jumbotron h1 {
+  font-size: 6rem;
+}
+.jumbotron p {
+  font-size: 1.5rem;
+}
+.quote{
+  font-style: italic;
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+
+ @media screen and (max-width: 992px){
+    .jumbotron h1 {
+      font-size: 5.5rem;
     }
-  p {
+  .jumbotron p{
+      font-size: 1.3rem;
+    }
+  .quote{
+    font-size: 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 580px){
+    .jumbotron h1 {
       font-size: 4rem;
     }
-  }
-
- @media screen and (min-width: 992px){
-    .jumbotron h1 {
-      font-size: 6rem;
+  .jumbotron p{
+      font-size: 1.1rem;
     }
-    p{
-      font-size: 2rem;
+    .quote{
+      font-size: 1.4rem;
     }
   }
 
-  @media screen and (max-width: 992px){
-    .jumbotron h1 {
-      font-size: 6rem;
-    }
-    p{
-      font-size: 2rem;
-    }
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .jumbotron h1 {
       font-size: 3.5rem;
     }
-    p{
-      font-size: 1.8rem;
+  .jumbotron p{
+      font-size: 1rem;
+    }
+    .quote{
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 323px) {
+    .quote{
+      font-size: 1.1rem;
     }
   }
  
 
-  <!----contact_card----->
+  /* <!----contact_card-----> */
   
   @media screen and (max-width: 1020px) {
     .card  .details .center h2 {
@@ -525,7 +556,7 @@ html {
 
   }
 
-  <!---- footer_------!>
+  /* <!---- footer_------!> */
   .footer #button{
 	width:35px;
 	height:35px;
@@ -552,8 +583,7 @@ html {
 }
 .footer {
 	bottom:0;
-	left:0;
-	position
+  left:0;
     width: 100%;
     height: 2em;
     overflow:hidden;
@@ -623,4 +653,24 @@ height:100%;
 }
 .size-about{
   font-size: 1.1rem;
+}
+.mybtn h3{
+  margin-bottom: 4px;
+  font-size: 30px;
+}
+@media screen and (max-width: 580px){
+  .mybtn{
+    padding: 10px 14px;
+  }
+  .mybtn h3{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 420px){
+  .mybtn{
+    padding: 8px 12px;
+  }
+  .mybtn h3{
+    font-size: 15px;
+  }
 }
