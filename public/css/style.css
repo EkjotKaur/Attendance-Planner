@@ -375,11 +375,11 @@ html {
         border-radius: 3px;
     }
 	.signup-form {
-		max-width: 500px;
+		
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
-		height: 100vh;
+		
 		display: row;
 		align-items: center;
 		margin-top: 80px!important;
