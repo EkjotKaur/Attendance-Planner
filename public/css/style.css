@@ -65,8 +65,8 @@ html {
 .bg-cover2 {
       background: url('/img/about.jpg') no-repeat center center;
       background-size: cover;
-      padding-top: 20%;
-      padding-bottom: 20%;   
+      padding-top: 25%;
+      padding-bottom: 25%;   
 }
 
 
@@ -486,6 +486,11 @@ html {
     font-size: 1.6rem;
     }
   }
+ @media screen and (max-width: 782px){
+    .jumbotron h1 {
+      font-size: 4.5rem;
+    }
+  }
 
   @media screen and (max-width: 580px){
     .jumbotron h1 {
@@ -499,7 +504,7 @@ html {
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .jumbotron h1 {
       font-size: 3.5rem;
     }
@@ -510,7 +515,10 @@ html {
       font-size: 1.2rem;
     }
   }
-  @media (max-width: 323px) {
+  @media (max-width: 400px) {
+    .jumbotron h1 {
+      font-size: 2.9rem;
+    }
     .quote{
       font-size: 1.1rem;
     }
@@ -673,4 +681,49 @@ height:100%;
   .mybtn h3{
     font-size: 15px;
   }
+}
+.img-sz-1{
+  height: 120px;
+  margin: auto;
+}
+.size-ab{
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 991px){
+  .img-sz-1{
+    height: 90px;
+  }
+  .size-ab{
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 767px){
+  .size-ab{
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 577px){
+  .img-sz-1{
+    height: 120px;
+  }
+}
+@media screen and (max-width: 477px){
+  .size-ab{
+    font-size: 0.8rem;
+  }
+}
+/* @media screen and (max-width: 437px){
+  .img-sz-1{
+    height: 50px;
+  }
+} */
+@media screen and (max-width: 440px){
+  .img-sz-1{
+    height: 100px;
+  }
+  /* .col-my-12{
+    max-width: 100%!important;
+    width: 100%!important;
+    padding: 10px 0;
+  } */
 }

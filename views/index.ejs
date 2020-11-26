@@ -1,7 +1,8 @@
 <%- include('./partials/top.ejs') %>
 
 <head>
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -45,18 +46,19 @@
  <!-- HEADING ANIMATION-->
 
 <div class="jumbotron jumbotron bg-cover mt-sm-4 mt-md-3 mt-lg-0">
-    <div class="overlay"></div>
     <div class="container mt-5 mt-sm-4 mt-md-3 mt-lg-0">
       <h4 class="quote">"One Step Solution for Teachers."</h4>
-      <h1 style="font-family: lobster;text-align: justify;" class="m-0">Presence</h1>
+      <h1 style="font-family: 'Cinzel', serif;text-align: justify;" class="m-0">Presence</h1>
       <p class="lead" style=" font-weight:medium;color: #333456;text-align: justify;">Attendance <span>Recorder</span></p>
       <br>
       <br>
       <br>
 
-
-      <a href="/login" class="btn btn-info mybtn btn-lg mr-sm-3 mr-2" role="button"><h3 class="px-lg-2 py-lg-2">Login</h3></a>
-        <a href="/signup" class="btn btn-info mybtn btn-lg" role="button"><h3 class="px-lg-2 py-lg-2">Sign Up</h3></a>
+      <div class="mb-5 mb-sm-4 mb-md-3 mb-lg-2">
+        <a href="/login" class="btn btn-info mybtn btn-lg mr-sm-3 mr-2" role="button"><h3 class="px-lg-2 py-lg-2">Login</h3></a>
+        <a href="/signup" class="btn btn-info mybtn btn-lg " role="button"><h3 class="px-lg-2 py-lg-2">Sign Up</h3></a>
+      </div>
+      
     </div>
   </div>
   <br>
@@ -94,15 +96,15 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
               <div class="timeline-content px-4 py-3 ">
                 <h3 class="center-align font-weight-bolder pt-1 text-center" >STEP 1: Sign Up</h3>
-                <div class="row align-items-center">
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row align-items-center justify-content-between justify-content-md-center">
+                  <div class="col-sm-4 col-12 mx-auto text-center">
                     <img src="/img/login.png" alt="" 
-                      class=" mt-2 w-100 mx-auto">
+                      class=" mt-2 mx-auto img-sz-1">
                   </div>
-                  <div class="col-lg-8 col-md-8 col-sm-8 px-4">
-                    <h5 class="size-about">Create your account by Signing-up.
+                  <div class="col-sm-8  col-12 px-4 pt-sm-0 pt-3">
+                    <h5 class="size-ab text-justify">Create your account by Signing-up.
                     Enter the required details and then you're good.
-                  </h5 class="size-about">
+                  </h5>
                   </div>
                 </div>
               </div>
@@ -110,15 +112,15 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
               <div class="timeline-content px-4 py-3">
                 <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 2: Create New Batch/Class </h3>
-                <div class="row align-items-center">
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row align-items-center justify-content-between justify-content-md-center">
+                  <div class="col-sm-4 col-12 mx-auto text-center">
                     <img src="/img/batch.png" alt=""
-                      class=" mt-2 w-100 mx-auto">
+                      class=" mt-2 mx-auto img-sz-1">
                   </div>
-                  <div class="col-lg-8 col-md-8 col-sm-8 " >
-                    <h5 class="size-about">Here, you can create the batch/class for your choice. 
+                  <div class="col-sm-8 col-12 px-4 pt-sm-0 pt-3" >
+                    <h5 class="size-ab text-justify">Here, you can create the batch/class for your choice. 
                     and it offer some features by which you can add new students to the list and can remove them too.
-                    </h5 class="size-about">
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -126,13 +128,13 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
               <div class="timeline-content px-4 py-3 ">
                 <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 3: Mark the Attendance </h3>
-                <div class="row align-items-center">
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row align-items-center justify-content-between justify-content-md-center">
+                  <div class="col-sm-4 col-12 mx-auto text-center">
                     <img src="/img/attendance_list.png" alt="" 
-                      class=" mt-2 w-100 mx-auto">
+                      class=" mt-2 img-sz-1 mx-auto">
                   </div>
-                  <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
-                    <h5 class="size-about">Mark Absent or Present and save it for later.
+                  <div class="col-sm-8 col-12 px-4 pt-sm-0 pt-3" >
+                    <h5 class="size-ab text-justify">Mark Absent or Present and save it for later.
                     It allows to know the no. of days a students was present/absent. </h5 class="size-about">
                   </div>
                 </div>
@@ -141,13 +143,13 @@ Especially made with an Indian teacher perspective in mind ,it is best suited fo
             <div class="timeline" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600">
               <div class="timeline-content px-4 py-3 ">
                 <h3 class="center-align font-weight-bolder pt-1 text-center">STEP 4: Download Attendance</h3>
-                <div class="row align-items-center">
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row align-items-center justify-content-between justify-content-md-center">
+                  <div class="col-sm-4 col-12 mx-auto text-center">
                     <img src="/img/download.png" alt="" 
-                      class=" mt-2 w-100 mx-auto">
+                      class=" mt-2 img-sz-1 mx-auto">
                   </div>
-                  <div class="col-lg-8 col-md-8 col-sm-8 px-4" >
-                    <h5 class="size-about">You can easily download attendance and sent it to whereever you want to.  </h5 class="size-about">
+                  <div class="col-sm-8 col-12 px-4 pt-sm-0 pt-3" >
+                    <h5 class="size-ab text-justify">You can easily download attendance and sent it to whereever you want to.  </h5 class="size-about">
                   </div>
                 </div>
               </div>
