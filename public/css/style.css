@@ -40,25 +40,38 @@ html {
 .bg-cover {
       background: url('/img/study.jpg') no-repeat center center;
       background-size: cover;
-      padding-top: 20%;
-      padding-bottom: 20%;   
+      padding-top: 13%;
+      padding-bottom: 13%;   
 }
-@media screen and (min-width: 579px){
-	.nav-height{
-		height: 80px;
-	}
+@media screen and (max-width: 611px){
+  .bg-cover{
+    padding-top: 20%;
+    padding-bottom: 20%;   
+}
+}
+@media screen and (max-width: 425px){
+  .bg-cover{
+    padding-top: 25%;
+    padding-bottom: 25%;   
+}
+}
+@media screen and (max-width: 350px){
+  .bg-cover{
+    padding-top: 37%;
+    padding-bottom: 37%;   
+}
 }
 
 .bg-cover2 {
       background: url('/img/about.jpg') no-repeat center center;
       background-size: cover;
-      padding-top: 20%;
-      padding-bottom: 20%;   
+      padding-top: 25%;
+      padding-bottom: 25%;   
 }
 
 
-.btn .btn-info .mybtn{
- display:inline-block;
+/* .btn .btn-info .mybtn{
+ display: inline-block;
  padding:0.35rem 1.2rem;
  border:0.1rem solid #FFFFFF;
  margin:0 0.3rem 0.3rem 0;
@@ -71,18 +84,18 @@ html {
  text-align:center;
  transition: all 0.2s;
 
-}
+} */
 
-.btn .btn-info .mybtn:hover{
+/* .btn .btn-info .mybtn:hover{
  color:#000000;
  background-color:#FFFFFF;
 }
 @media all and (max-width:768px){
- .btn .btn-info .mybtn h5{
+ .btn .btn-info .mybtn h3{
   display:block;
   margin:0.4rem !important;
  }
-}
+} */
 
 
   #About {text-align:center; padding-top:50px;height:500px;color: #fff;width: 100%;}
@@ -362,11 +375,11 @@ html {
         border-radius: 3px;
     }
 	.signup-form {
-		max-width: 500px
+		
 		margin: 0 auto;
 		padding: 30px 0;
 		float: none;
-		height: 100vh;
+		
 		display: row;
 		align-items: center;
 		margin-top: 80px!important;
@@ -447,65 +460,72 @@ html {
 }
 
 
-<!---heading---->
+/* <!---heading----!> */
   
-  @media screen and (max-width: 1020px) {
-      .heading h1 {
-      font-size: 9rem !important;
+.jumbotron h1 {
+  font-size: 6rem;
+}
+.jumbotron p {
+  font-size: 1.5rem;
+}
+.quote{
+  font-style: italic;
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+
+ @media screen and (max-width: 992px){
+    .jumbotron h1 {
+      font-size: 5.5rem;
     }
-  .lead p {
+  .jumbotron p{
+      font-size: 1.3rem;
+    }
+  .quote{
+    font-size: 1.6rem;
+    }
+  }
+ @media screen and (max-width: 782px){
+    .jumbotron h1 {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media screen and (max-width: 580px){
+    .jumbotron h1 {
       font-size: 4rem;
     }
-  .sub-heading  h5{
-    	font-size: 2.8rem;
+  .jumbotron p{
+      font-size: 1.1rem;
     }
-  
+    .quote{
+      font-size: 1.4rem;
+    }
   }
 
- @media screen and (min-width: 992px){
-    .heading h1 {
-      font-size: 6rem;
-    }
-   .lead p{
-      font-size: 2rem;
-    }
-  .sub-heading h5{
-   	font-size: 2rem;
-   }
-  }
-
-  @media screen and (max-width: 992px){
-    .heading h1 {
-      font-size: 6rem;
-    }
-    .lead p{
-      font-size: 2rem;
-    }
-  .sub-heading h5{
-    	font-size: 1.8rem;
-    }
-   
-  }
-
-  @media (max-width: 768px) {
-    .heading h1 {
+  @media (max-width: 480px) {
+    .jumbotron h1 {
       font-size: 3.5rem;
     }
-   .lead p{
-      font-size: 1.8rem;
+  .jumbotron p{
+      font-size: 1rem;
     }
-   .sub-heading h5{
-    	font-size: 1.2rem;
+    .quote{
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 400px) {
+    .jumbotron h1 {
+      font-size: 2.9rem;
+    }
+    .quote{
+      font-size: 1.1rem;
     }
   }
  
-  @media (max-width: 579px) {
-    .heading h1 { margin-top: 10px;
-      }
-     .sub-heading h5{margin-top:50px;
-      }
-    }
-  <!----contact_card----->
+
+  /* <!----contact_card-----> */
   
   @media screen and (max-width: 1020px) {
     .card  .details .center h2 {
@@ -544,7 +564,7 @@ html {
 
   }
 
-  <!---- footer_------!>
+  /* <!---- footer_------!> */
   .footer #button{
 	width:35px;
 	height:35px;
@@ -571,8 +591,7 @@ html {
 }
 .footer {
 	bottom:0;
-	left:0;
-	position
+  left:0;
     width: 100%;
     height: 2em;
     overflow:hidden;
@@ -643,15 +662,68 @@ height:100%;
 .size-about{
   font-size: 1.1rem;
 }
- 
-
-@media only screen and (max-width: 580px){
-.btn .btn-info .mybtn .btn-lg{
-	padding: 0.2rem !important;
+.mybtn h3{
+  margin-bottom: 4px;
+  font-size: 30px;
 }
-.btn .btn-info .mybtn .btn-lg h5{
-	margin-top: 10px !important;
-
-   }
+@media screen and (max-width: 580px){
+  .mybtn{
+    padding: 10px 14px;
+  }
+  .mybtn h3{
+    font-size: 20px;
+  }
 }
-
+@media screen and (max-width: 420px){
+  .mybtn{
+    padding: 8px 12px;
+  }
+  .mybtn h3{
+    font-size: 15px;
+  }
+}
+.img-sz-1{
+  height: 120px;
+  margin: auto;
+}
+.size-ab{
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 991px){
+  .img-sz-1{
+    height: 90px;
+  }
+  .size-ab{
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 767px){
+  .size-ab{
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 577px){
+  .img-sz-1{
+    height: 120px;
+  }
+}
+@media screen and (max-width: 477px){
+  .size-ab{
+    font-size: 0.8rem;
+  }
+}
+/* @media screen and (max-width: 437px){
+  .img-sz-1{
+    height: 50px;
+  }
+} */
+@media screen and (max-width: 440px){
+  .img-sz-1{
+    height: 100px;
+  }
+  /* .col-my-12{
+    max-width: 100%!important;
+    width: 100%!important;
+    padding: 10px 0;
+  } */
+}
