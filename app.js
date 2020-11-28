@@ -33,8 +33,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(
-  "mongodb+srv://admin-EkjotKaur:Test123@attendance.e3ui6.mongodb.net/attendanceDB",
+mongoose.connect(process.env.MONGODBURI,
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 );
 
